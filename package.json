@@ -9,7 +9,8 @@
     "react-scripts": "5.0.1",
     "react-simple-wysiwyg": "^2.1.4",
     "react-use-websocket": "^4.2.0",
-    "reactstrap": "^9.1.5"
+    "reactstrap": "^9.1.5",
+    "swiper": "^10.3.0"
   },
   "scripts": {
     "start": "react-scripts start",
