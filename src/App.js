@@ -66,17 +66,28 @@ function App() {
         console.log("slider1 =" + lastJsonMessage.slider1);
       }
       else if (lastJsonMessage.experience) {
-        experience = lastJsonMessage.experience;
+        setExperience(lastJsonMessage.experience);
         console.log("exp = " + experience);
       }
     }
   }, [lastJsonMessage]);
 
-  var ellipse6left = "0px";
-  const setEllipse6left = (newPos) => {
-  ellipse6left = newPos;
-  console.log(ellipse6left)
-  };
+  //MOUSE POSITION
+  const [mouseLocalCoordinates, setMouseLocalCoordinates] = useState({x:0, y:0});
+
+  const mouseMoveHandler = (event) => {
+    setMouseLocalCoordinates({
+      x:event.clientX - event.target.offsetLeft,
+      y:event.clientY - event.target.offsetTop
+    });
+  }
+
+  useEffect(()=>{
+    window.addEventListener('mousemove', mouseMoveHandler);
+    return(()=>{
+      window.removeEventListener('mousemove', mouseMoveHandler);
+    })
+  }, [])
 
   return (
     <>
@@ -106,7 +117,7 @@ function App() {
           <div className="ellipse-2" />
           <div className="ellipse-3" />
           <div className="ellipse-4" />
-          <h1>{ellipse6left}</h1>
+
           <div className="ellipse-5" />
           <img className="vector-2" alt="Vector" src={require('./assets/Vector2.png')} />
           {experience==1?  <img className="ellipse-6"/>: null}
@@ -163,6 +174,9 @@ function App() {
                       <div className="text-wrapper-9">happy</div>
                       <div className="text-wrapper-10">valence+</div>
                       <div className="text-wrapper-11">arousal+</div>
+                      <>
+      Mouse Local Coordinates: x = {mouseLocalCoordinates.x}, y={mouseLocalCoordinates.y}
+    </>
                     </div>
                     <div className="text-wrapper-12">nervous</div>
                   </div>
