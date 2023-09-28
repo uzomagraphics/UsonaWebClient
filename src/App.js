@@ -58,6 +58,38 @@ function App() {
       "type" : "public_c"} 
     ));
   };
+///////////MODBUS///////////////
+  const sendModbus = (num) => {
+    console.log("sendModbus = " + num)
+    sendMessage(JSON.stringify({ 
+      "modbusButton" : num,
+      "type" : "public_c"} 
+    ));
+  };
+  const sendModbusSlider = (num, id) => {
+    console.log("sendModbusSlider = " + id + " val = " + num)
+    sendMessage(JSON.stringify({ 
+      "modbusSlider" : num,
+      "type" : "modbusSlider" + id} 
+    ));
+  };
+
+///////////BACNET///////////////
+const sendBacnet = (num) => {
+  console.log("sendBacnet = " + num)
+  sendMessage(JSON.stringify({ 
+    "bacnetButton" : num,
+    "type" : "public_c"} 
+  ));
+};
+const sendBacnetSlider = (num, id) => {
+  console.log("sendBacnetSlider = " + id + " val = " + num)
+  sendMessage(JSON.stringify({ 
+    "bacnetSlider" : num,
+    "type" : "bacnetSlider" + id} 
+  ));
+};
+
 
   useEffect(() => {
     if (lastJsonMessage !== null) {
@@ -77,8 +109,8 @@ function App() {
 
   const mouseMoveHandler = (event) => {
     setMouseLocalCoordinates({
-      x:event.clientX - event.target.offsetLeft,
-      y:event.clientY - event.target.offsetTop
+      x:event.clientX - event.target.offsetLeft - 47.96,
+      y:event.clientY - event.target.offsetTop - 75.61
     });
   }
 
@@ -153,6 +185,9 @@ function App() {
               <img className="group" alt="Group" src={require('./assets/Group\ 2.png')} />
               <div className="emotion">
                 <div className="overlap-group">
+                <>
+      Mouse Local Coordinates: x = {mouseLocalCoordinates.x}, y={mouseLocalCoordinates.y}
+    </>
                   <div className="div">
                     <div className="overlap-2">
                       <div className="group-2">
@@ -174,9 +209,7 @@ function App() {
                       <div className="text-wrapper-9">happy</div>
                       <div className="text-wrapper-10">valence+</div>
                       <div className="text-wrapper-11">arousal+</div>
-                      <>
-      Mouse Local Coordinates: x = {mouseLocalCoordinates.x}, y={mouseLocalCoordinates.y}
-    </>
+                      
                     </div>
                     <div className="text-wrapper-12">nervous</div>
                   </div>
@@ -200,7 +233,33 @@ function App() {
 
         <SwiperSlide>
           <div class="swiper-slide slide4">
-            <h1>CONTROLS</h1>
+          <h1>CONTROL</h1>
+            <div style={{position:"absolute", top:"300px"}}>
+              <h2 style={{color:"white"}}>MODBUS</h2>
+              <button style={{width:"150px", height:"50px", marginRight:"20px"}} onClick={e => {sendModbus(1)}}></button>
+              <button style={{width:"150px", height:"50px", marginRight:"20px"}} onClick={e => {sendModbus(2)}}></button>
+              <button style={{width:"150px", height:"50px", marginRight:"20px"}} onClick={e => {sendModbus(3)}}></button>
+              <button style={{width:"150px", height:"50px", marginRight:"20px"}} onClick={e => {sendModbus(4)}}></button>
+              <button style={{width:"150px", height:"50px", marginRight:"20px"}} onClick={e => {sendModbus(5)}}></button>
+              <div style={{position:"relative", top:"50px"}}>
+                <input style={{width:"350px", height:"50px", marginRight:"20px"}} type="range" onChange={e => {sendModbusSlider(e.target.value /100, 1)}} ></input>
+                <input style={{width:"350px", height:"50px", marginRight:"20px"}} type="range" onChange={e => {sendModbusSlider(e.target.value /100, 2)}} ></input>             
+              </div>
+            </div>
+
+            <div style={{position:"absolute", top:"600px"}}>
+              <h2 style={{color:"white"}}>BACnet</h2>
+              <button style={{width:"150px", height:"50px", marginRight:"20px"}} onClick={e => {sendBacnet(1)}}></button>
+              <button style={{width:"150px", height:"50px", marginRight:"20px"}} onClick={e => {sendBacnet(2)}}></button>
+              <button style={{width:"150px", height:"50px", marginRight:"20px"}} onClick={e => {sendBacnet(3)}}></button>
+              <button style={{width:"150px", height:"50px", marginRight:"20px"}} onClick={e => {sendBacnet(4)}}></button>
+              <button style={{width:"150px", height:"50px", marginRight:"20px"}} onClick={e => {sendBacnet(5)}}></button>
+              <div style={{position:"relative", top:"50px"}}>
+                <input style={{width:"350px", height:"50px", marginRight:"20px"}} type="range" onChange={e => {sendBacnetSlider(e.target.value /100, 1)}} ></input>
+                <input style={{width:"350px", height:"50px", marginRight:"20px"}} type="range" onChange={e => {sendBacnetSlider(e.target.value /100, 2)}} ></input>            
+              </div>
+            </div>
+            
           </div>
         </SwiperSlide>
       </Swiper>
