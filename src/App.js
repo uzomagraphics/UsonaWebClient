@@ -50,14 +50,42 @@ function App() {
   };
 
   var [experience, setExperience] = useState('');
-  const changeExperience = (num) => {
-    experience = num;
-    console.log("experience = " + experience)
+  const changeExperience = (exp) => {
+    console.log("Send experience = " + exp)
     sendMessage(JSON.stringify({ 
-      "experience" : experience,
-      "type" : "public_c"} 
+      "experience" : exp} 
     ));
   };
+
+    ////////TEST
+    const sendBrightness = (num) => {
+      console.log("sendBrightness = " + num)
+      sendMessage(JSON.stringify({ 
+        "brightness" : num} 
+      ));
+    };
+
+    const sendStop = (num) => {
+      console.log("sendstop= " + num)
+      sendMessage(JSON.stringify({ 
+        "stop" : 'stop'} 
+      ));
+    };
+
+    const sendEnergy = (num) => {
+      console.log("sendSnergy = " + num)
+      sendMessage(JSON.stringify({ 
+        "energy" : num} 
+      ));
+    };
+
+    const sendPositivity = (num) => {
+      console.log("sendPositivity = " + num)
+      sendMessage(JSON.stringify({ 
+        "positivity" : num} 
+      ));
+    };
+  
 ///////////MODBUS///////////////
   const sendModbus = (num) => {
     console.log("sendModbus = " + num)
@@ -114,12 +142,15 @@ const sendBacnetSlider = (num, id) => {
     });
   }
 
+
   useEffect(()=>{
     window.addEventListener('mousemove', mouseMoveHandler);
     return(()=>{
       window.removeEventListener('mousemove', mouseMoveHandler);
     })
   }, [])
+
+
 
   return (
     <>
@@ -134,12 +165,12 @@ const sendBacnetSlider = (num, id) => {
           <div className="rectangle" />
           <div className="text-wrapper">EXPERIENCE</div>
           <div className="experience-rec">
-              <button className="rectangle-2" onClick={e => {setExperience(1); changeExperience(1)}}></button>
-              <button className="rectangle-3" onClick={e => {setExperience(2); changeExperience(2)}}></button>
-              <button className="rectangle-4" onClick={e => {setExperience(3); changeExperience(3)}}></button>
-              <button className="rectangle-5" onClick={e => {setExperience(4); changeExperience(4)}}></button>
-              <button className="rectangle-6" onClick={e => {setExperience(5); changeExperience(5)}}></button>
-              <button className="rectangle-7" onClick={e => {setExperience(6); changeExperience(6)}}></button>
+              <button className="rectangle-2" ></button>
+              <button className="rectangle-3" ></button>
+              <button className="rectangle-4" ></button>
+              <button className="rectangle-5" ></button>
+              <button className="rectangle-6" ></button>
+              <button className="rectangle-7" ></button>
             
           </div>
           <img className="vector-tree" alt="Vector tree" src={require('./assets/Vector\ tree.png')} />
@@ -184,7 +215,7 @@ const sendBacnetSlider = (num, id) => {
               </div>
               <img className="group" alt="Group" src={require('./assets/Group\ 2.png')} />
               <div className="emotion">
-                <div className="overlap-group">
+                <div className="overlap-group swiper-no-swiping">
                 <>
       Mouse Local Coordinates: x = {mouseLocalCoordinates.x}, y={mouseLocalCoordinates.y}
     </>
@@ -198,7 +229,7 @@ const sendBacnetSlider = (num, id) => {
                         <img className="img" alt="Arrow" src={require('./assets/Arrow\ 2.png')} />
                         <img className="line-2" alt="Line" src={require('./assets/Line\ 1.png')} />
                       </div>
-                      <div className="text-wrapper">sad</div>
+                      <div className="text-wrapper" style={{opacity:mouseLocalCoordinates.x/1000}}>sad</div>
                       <div className="text-wrapper-2">upset</div>
                       <div className="text-wrapper-3">calm</div>
                       <div className="text-wrapper-4">serene</div>
@@ -227,7 +258,40 @@ const sendBacnetSlider = (num, id) => {
 
         <SwiperSlide>
           <div class="swiper-slide slide3">
-            <h1>EMOTION</h1>
+          <h1>TEST</h1>
+            <div style={{position:"absolute", top:"200px"}}>
+              <h2 style={{color:"white"}}> EXPERIENCE</h2>
+              <button style={{width:"150px", height:"50px", marginRight:"20px"}} onClick={e => {changeExperience('forest')}}>FOREST</button>
+              <button style={{width:"150px", height:"50px", marginRight:"20px"}} onClick={e => {changeExperience('ocean')}}>OCEAN</button>
+              <button style={{width:"150px", height:"50px", marginRight:"20px"}} onClick={e => {changeExperience('meditation')}}>MEDITATION</button>
+              <button style={{width:"150px", height:"50px", marginRight:"20px"}} onClick={e => {changeExperience('space')}}>SPACE</button>
+              <button style={{width:"150px", height:"50px", marginRight:"20px"}} onClick={e => {changeExperience('spiral')}}>SPIRAL</button>
+              <button style={{width:"150px", height:"50px", marginRight:"20px"}} onClick={e => {changeExperience('reactive2')}}>REACTIVE2</button>
+            </div>
+
+            <div style={{position:"absolute", top:"350px"}}>
+              <h2 style={{color:"white"}}>EMOTIONAL VALENCE</h2>
+              <div>
+                <input style={{width:"350px", height:"50px", marginRight:"20px"}} type="range" onChange={e => {sendBrightness(e.target.value /100)}} ></input>            
+                <input style={{width:"350px", height:"50px", marginRight:"20px"}} type="range" onChange={e => {sendEnergy(e.target.value /100)}} ></input>            
+              </div>
+              <div style={{position:"relative"}}>
+                <button style={{width:"150px", height:"50px", marginRight:"20px"}} onClick={e => {sendStop('reactive2')}}>STOP</button>
+                <input style={{width:"350px", height:"50px", marginRight:"20px", marginLeft:"206px"}} type="range" onChange={e => {sendPositivity(e.target.value /100)}} ></input>            
+
+              </div>
+            </div>
+
+
+            <div style={{position:"absolute", top:"550px"}}>
+              <h2 style={{color:"white"}}>AUDIO</h2>
+              <div>
+                <input style={{width:"350px", height:"50px", marginRight:"20px"}} type="range" onChange={e => {sendBrightness(e.target.value /100)}} ></input>            
+                <input style={{width:"350px", height:"50px", marginRight:"20px"}} type="range" onChange={e => {sendEnergy(e.target.value /100)}} ></input>            
+              </div>
+              
+            </div>
+
           </div>
         </SwiperSlide>
 
