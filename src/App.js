@@ -1,7 +1,10 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState  } from 'react';
 import useWebSocket from 'react-use-websocket';
+import RangeSlider from 'react-range-slider-input';
+import "react-range-slider-input/dist/style.css";
 
-import { Swiper, SwiperSlide } from "swiper/react";
+
+import { Swiper, SwiperClass, SwiperSlide, useSwiper } from "swiper/react";
 
 // Import Swiper styles
 import "swiper/css";
@@ -17,7 +20,7 @@ import "./fonts/RooneySans-Bold.ttf";
 import "./fonts/RooneySans-Regular.ttf";
 
 
-const WS_URL = 'ws://127.0.0.1:8000';
+const WS_URL = 'ws://192.168.1.66:8000';
 
 function App() {
   const { } = useWebSocket(WS_URL, {
@@ -48,7 +51,7 @@ function App() {
       "type" : "public_c"} 
     ));
   };
-
+/////////EXPERIENCE////////////////
   var [experience, setExperience] = useState('');
   const changeExperience = (exp) => {
     console.log("Send experience = " + exp)
@@ -56,6 +59,41 @@ function App() {
       "experience" : exp} 
     ));
   };
+
+/////////EMOTIONAL VALENCE////////
+var [play_pause, setPlay_pause] = useState(true);
+const changePlay_pause = () => {
+  console.log("Send play_pause = " + play_pause)
+  sendMessage(JSON.stringify({ 
+    "stop" : play_pause} 
+  ));
+};
+
+var [brightness, setBrightness] = useState('');
+  const changeBrightness = (e) => {
+    console.log("Send brightness = " + brightness)
+    sendMessage(JSON.stringify({ 
+      "brightness" : brightness[1]/100} 
+    ));
+  };
+
+var [speed, setSpeed] = useState('');
+  const changeSpeed = (e) => {
+    console.log("Send speed = " + speed)
+    sendMessage(JSON.stringify({ 
+      "speed" : speed[1]/100} 
+    ));
+  };
+
+/////////AUDIO////////
+var [volume, setVolume] = useState('');
+  const changeVolume = (e) => {
+    console.log("Send volume = " + volume)
+    sendMessage(JSON.stringify({ 
+      "volume" : volume[1]/100} 
+    ));
+  };
+
 
     ////////TEST
     const sendBrightness = (num) => {
@@ -121,139 +159,294 @@ const sendBacnetSlider = (num, id) => {
 
   useEffect(() => {
     if (lastJsonMessage !== null) {
-      if (lastJsonMessage.slider1){
-        setSlider1(lastJsonMessage.slider1 * 100);
-        console.log("slider1 =" + lastJsonMessage.slider1);
-      }
-      else if (lastJsonMessage.experience) {
+      
+      if (lastJsonMessage.experience) {
         setExperience(lastJsonMessage.experience);
         console.log("exp = " + experience);
+      }
+      if (lastJsonMessage.stop){
+        setPlay_pause(lastJsonMessage.stop == 'play'? 'pause' : 'play');
+        console.log("play_pause = " + lastJsonMessage.stop);
+      }
+      if (lastJsonMessage.brightness){
+        setBrightness([0, lastJsonMessage.brightness * 100]);
+        console.log("brightness = " + lastJsonMessage.brightness);
+      }
+      if (lastJsonMessage.speed){
+        setSpeed([0, lastJsonMessage.speed * 100]);
+        console.log("speed = " + lastJsonMessage.speed);
+      }
+      if (lastJsonMessage.volume){
+        setVolume([0, lastJsonMessage.volume * 100]);
+        console.log("volume = " + lastJsonMessage.volume);
       }
     }
   }, [lastJsonMessage]);
 
-  //MOUSE POSITION
-  const [mouseLocalCoordinates, setMouseLocalCoordinates] = useState({x:0, y:0});
 
-  const mouseMoveHandler = (event) => {
-    setMouseLocalCoordinates({
-      x:event.clientX - event.target.offsetLeft - 47.96,
-      y:event.clientY - event.target.offsetTop - 75.61
-    });
-  }
+  //MOUSE POSITION  FLOWER OF LIFE
+  const handleMouseMove = (event) => {
+    // 👇 Get mouse position relative to element
+    const localX = event.clientX - event.target.offsetLeft;
+    const localY = event.clientY - event.target.offsetTop;
+  };
+  useEffect(() => {
+    const handleMouseMove = (event) => {
+      if(true){
+        if(Math.pow(Math.abs(670.5 - event.clientX), 2) + Math.pow(Math.abs(574.5 - event.clientY), 2) < Math.pow(412.5, 2)){
+          sendMessage(JSON.stringify({ 
+            "energy" : (event.clientX - 258) / 825,
+            "positivity" : 1-(event.clientY -162) / 825}
+          ));
+        }
+      }
+    };
 
+    window.addEventListener('mousemove', handleMouseMove);
+    return () => {
+      window.removeEventListener(
+        'mousemove',
+        handleMouseMove
+      );
+    };
+  }, []);
 
-  useEffect(()=>{
-    window.addEventListener('mousemove', mouseMoveHandler);
-    return(()=>{
-      window.removeEventListener('mousemove', mouseMoveHandler);
-    })
-  }, [])
 
 
 
   return (
     <>
-      <Swiper pagination={true} modules={[Pagination]} className="mySwiper">
+      <Swiper pagination={true} modules={[Pagination]} className="mySwiper" onSlideChange={() => console.log("change")} >
         <SwiperSlide>
-          <div class="swiper-slide slide1">
-            <div class="frame">
-              <div className="GALAXY">
-      <div className="div">
-        <div className="ellipse" />
-        <div className="overlap-group">
-          <div className="rectangle" />
-          <div className="text-wrapper">EXPERIENCE</div>
-          <div className="experience-rec">
-              <button className="rectangle-2" ></button>
-              <button className="rectangle-3" ></button>
-              <button className="rectangle-4" ></button>
-              <button className="rectangle-5" ></button>
-              <button className="rectangle-6" ></button>
-              <button className="rectangle-7" ></button>
-            
-          </div>
-          <img className="vector-tree" alt="Vector tree" src={require('./assets/Vector\ tree.png')} />
-          <img className="img" alt="Vector tree" src={require('./assets/Vector\ tree.png')} />
-          <img className="group" alt="Group" src={require('./assets/Group\ 1.png')}  />
-          <img className="vector" alt="Vector" src={require('./assets/Vector.png')}  />
-          <div className="ellipse-2" />
-          <div className="ellipse-3" />
-          <div className="ellipse-4" />
-
-          <div className="ellipse-5" />
-          <img className="vector-2" alt="Vector" src={require('./assets/Vector2.png')} />
-          {experience==1?  <img className="ellipse-6"/>: null}
-          {experience==2?  <img className="ellipse-7"/>: null}
-          {experience==3?  <img className="ellipse-8"/>: null}
-          {experience==4?  <img className="ellipse-9"/>: null}
-          {experience==5?  <img className="ellipse-10"/>: null}
-          {experience==6?  <img className="ellipse-11"/>: null}
-       
-          
-
-    <div>
-      <input value={slider1} type="range" onChange={e => {setSlider1(e.target.value); changeSlider1() }} ></input>
-    </div>
-        </div>
-      </div>
-    </div>
+          <div className="element-EXPERIENCES">
+            <div className="overlap-wrapper">
+              <div className="overlap">
+                <div className="rectangle" />
+                  <img className="promousonalogowhite" alt="Promousonalogowhite" src={require('./assets/PromoUSONA.png')} />
+                  <header className="HEADER">
+                <div className="overlap-group">
+              <div className="div" />
+              <img
+                className="element-USONA-logo-high"
+                alt="Element USONA logo high"
+                src={require('./assets/Logo.png')}
+              />
+              <div className="text-wrapper">EXPERIENCES</div>
             </div>
-          </div>
-        </SwiperSlide>
+            </header>
 
-  <SwiperSlide>
-    <div class="swiper-slide slide2">
-      
-      <div className="GALAXY2">
-        <div className="overlap-wrapper">
-          <div className="overlap">
-            <div className="rectangle" />
-              <div className="EMOTIONAL-STATE">
-              EMOTIONAL <br />
-              STATE
+              <div className="element-RAIN-FOREST">
+                <div className="overlap-2">
+                  {experience=='forest'?  <img className="ellipseRot" alt="Ellipse" src={require('./assets/Ellipse7.png')} />: null}
+                  <img className="ellipse" alt="Ellipse" src={require('./assets/Ellipse7.png')} />
+                  <button className="btnimg" onClick={e => {changeExperience('forest'); setExperience('forest')}}>
+                    <img className="img" alt="Element RAIN FOREST" src={require('./assets/RAINFOREST.png')} />
+                  </button>
+                </div>
               </div>
-              <img className="group" alt="Group" src={require('./assets/Group\ 2.png')} />
-              <div className="emotion">
-                <div className="overlap-group swiper-no-swiping">
-                <>
-      Mouse Local Coordinates: x = {mouseLocalCoordinates.x}, y={mouseLocalCoordinates.y}
-    </>
-                  <div className="div">
-                    <div className="overlap-2">
-                      <div className="group-2">
-                        <img className="arrow" alt="Arrow" src={require('./assets/Arrow\ 1.png')} />
-                        <img className="line" alt="Line" src={require('./assets/Line\ 2.png')} />
-                      </div>
-                      <div className="group-3">
-                        <img className="img" alt="Arrow" src={require('./assets/Arrow\ 2.png')} />
-                        <img className="line-2" alt="Line" src={require('./assets/Line\ 1.png')} />
-                      </div>
-                      <div className="text-wrapper" style={{opacity:mouseLocalCoordinates.x/1000}}>sad</div>
-                      <div className="text-wrapper-2">upset</div>
-                      <div className="text-wrapper-3">calm</div>
-                      <div className="text-wrapper-4">serene</div>
-                      <div className="text-wrapper-5">alert</div>
-                      <div className="text-wrapper-6">depressed</div>
-                      <div className="text-wrapper-7">excited</div>
-                      <div className="text-wrapper-8">fatigued</div>
-                      <div className="text-wrapper-9">happy</div>
-                      <div className="text-wrapper-10">valence+</div>
-                      <div className="text-wrapper-11">arousal+</div>
-                      
-                    </div>
-                    <div className="text-wrapper-12">nervous</div>
+              
+              <div className="element-OCEAN">
+                <div className="overlap-2">
+                  {experience=='ocean'?  <img className="ellipseRot" alt="Ellipse" src={require('./assets/Ellipse8.png')} />: null}
+                  <img className="ellipse" alt="Ellipse" src={require('./assets/Ellipse8.png')} />
+                  <button className="btnimg" onClick={e => {changeExperience('ocean'); setExperience('ocean')}}>
+                    <img className="img-2" alt="Element OCEAN" src={require('./assets/OCEAN.png')} />
+                  </button>
+                </div>
+              </div>
+
+              <div className="element-MEDITATION">
+                <div className="overlap-2">
+                  {experience=='meditation'?  <img className="ellipseRot" alt="Ellipse" src={require('./assets/Ellipse10.png')} />: null}
+                  <img className="ellipse" alt="Ellipse" src={require('./assets/Ellipse10.png')} />
+                  <button className="btnimg" onClick={e => {changeExperience('meditation'); setExperience('meditation')}}>
+                    <img className="element-MEDITATION-2" alt="Element MEDITATION" src={require('./assets/MEDITATION.png')} />
+                  </button>
+                </div>
+              </div>
+
+              <div className="element-GALAXY">
+                <div className="overlap-2">
+                  {experience=='galaxy'?  <img className="ellipseRot" alt="Ellipse" src={require('./assets/Ellipse9.png')} />: null}
+                  <img className="ellipse" alt="Ellipse" src={require('./assets/Ellipse9.png')} />
+                  <button className="btnimg" onClick={e => {changeExperience('galaxy'); setExperience('galaxy')}}>
+                    <img className="img" alt="Element GALAXY" src={require('./assets/GALAXY.png')} />
+                  </button>
+                </div>
+              </div>
+
+                <div className="element-SPIRAL-RS">
+                  <div className="overlap-2">
+                    {experience=='spiral'?  <img className="ellipseRot" alt="Ellipse" src={require('./assets/Ellipse11.png')} />: null}
+                    <img className="ellipse" alt="Ellipse" src={require('./assets/Ellipse11.png')} />
+                    <button className="btnimg" onClick={e => {changeExperience('spiral'); setExperience('spiral')}}>
+                      <img className="img-2" alt="Element SPIRAL REACTIVE" src={require('./assets/SPIRAL.png')} />
+                    </button>
                   </div>
-                  <div className="text-wrapper-13">stressed</div>
-                  <div className="text-wrapper-14">relaxed</div>
+                </div>
+
+                <div className="element-REACTIVE-SCENE">
+                  <div className="overlap-2">
+                    {experience=='reactive2'?  <img className="ellipseRot" alt="Ellipse" src={require('./assets/Ellipse14.png')} />: null}
+                    <img className="ellipse" alt="Ellipse" src={require('./assets/Ellipse14.png')} />
+                    <button className="btnimg" onClick={e => {changeExperience('reactive2'); setExperience('reactive2')}}>
+                      <img className="img-2" alt="Element REACTIVE SCENE" src={require('./assets/REACTIVESCENE.png')} />
+                    </button>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
-        </div>
+          
+        </SwiperSlide>
 
+  <SwiperSlide>
+  
+    <div className="element-EMOTIONAL-VALENCE">
+      <div className="overlap-wrapper">
+        <div className="overlap">
+
+          <header className="HEADER">
+            <div className="overlap-group">
+              <img className="promousonalogowhite" alt="Promousonalogowhite" src={require('./assets/PromoUSONA.png')} />
+              <div className="rectangle" />
+              <img
+                className="element-USONA-logo-high"
+                alt="Element USONA logo high"
+                src={require('./assets/Logo.png')}
+              />
+              <div className="text-wrapper">EMOTIONAL VALENCE</div>
+            </div>
+          </header>
+
+          <div className="SETTINGS swiper-no-swiping">
+          
+            <div className="div">
+              <div className="rectangle-2" />
+              <button className="btnimg" onClick={e => { setPlay_pause(play_pause == 'play' ? 'pause' : 'play'); changePlay_pause()}}>
+              <div className="PLAY-STOP">
+              {play_pause == 'play' ?  <img className="img" alt="Play STOP" src={require('./assets/Play.png')}/>: <img className="img" alt="Play STOP" src={require('./assets/Pause.png')}/>}
+              
+              
+              </div>
+              </button>
+
+              <div className="BRIGHTNESS">
+                <img className="BRIGHTNESS-ICON" alt="Brightness ICON" src={require('./assets/BRIGHTNESSICON.png')} />
+                <div className="SLIDER">
+                  <div className="overlap-group-2">
+                    <RangeSlider
+                      className="b_slider"
+                      defaultValue={[0, 1]}
+                      thumbsDisabled={[true, false]}
+                      rangeSlideDisabled={true}
+                      value = {brightness}
+                      onInput={e => {setBrightness(e); changeBrightness()}}
+                    />
+                  </div>
+                </div>
+              </div>
+
+              <div className="SPEED">
+                <div className="overlap-group-wrapper">
+                  <div className="overlap-group-2">
+                    <RangeSlider
+                      className="s_slider"
+                      defaultValue={[0, 1]}
+                      thumbsDisabled={[true, false]}
+                      rangeSlideDisabled={true}
+                      value = {speed}
+                      onInput={e => {setSpeed(e); changeSpeed()}}
+                    />
+                  </div>
+                </div>
+                <img className="SPEED-ICON" alt="Speed ICON" src={require('./assets/SPEEDICON.png')} />
+              </div>
+              <img className="line" alt="Line" src={require('./assets/Line1.png')} />
+              <img className="line-2" alt="Line" src={require('./assets/Line1.png')} />
+            </div>
+          </div>
+
+          <div className="EMOTIONAL-CIRCLE swiper-no-swiping" draggable="false" onMouseEnter={handleMouseMove}>
+          
+          
+            <div className="overlap-2">
+              <img className="FLOWER-OF-LIFE" alt="Flower OF LIFE" src={require('./assets/FLOWEROFLIFE.png')} draggable="false"/>
+              <img className="line-3" alt="Line" src={require('./assets/Line2.png')} draggable="false"/>
+              <img className="line-4" alt="Line" src={require('./assets/Line3.png')} draggable="false"/>
+              <div className="text-wrapper-2" draggable="false">stressed</div>
+              <div className="text-wrapper-3" draggable="false">relaxed</div>
+              <div className="text-wrapper-4" draggable="false">nervous</div>
+              <div className="text-wrapper-5" draggable="false">depressed</div>
+              <div className="text-wrapper-6" draggable="false">sad</div>
+              <div className="text-wrapper-7" draggable="false">alert</div>
+              <div className="text-wrapper-8" draggable="false">arrousal +</div>
+              <div className="text-wrapper-9" draggable="false">valence +</div>
+              <div className="text-wrapper-10" draggable="false">fatigued</div>
+              <div className="text-wrapper-11" draggable="false">happy</div>
+              <div className="text-wrapper-12" draggable="false">excited</div>
+              <div className="text-wrapper-13" draggable="false">serene</div>
+              <div className="text-wrapper-14" draggable="false">upset</div>
+              <div className="text-wrapper-15" draggable="false">calm</div>
+            </div>
+          </div>
+
+        </div>
       </div>
+    </div>
       
+  </SwiperSlide>
+
+  <SwiperSlide>
+
+    <div className="element-AUDIO-STEP">
+      <div className="overlap-wrapper">
+        <div className="overlap">
+          <img className="promousonalogowhite" alt="Promousonalogowhite" src={require('./assets/PromoUSONA.png')} />
+          <img className="img" alt="Rectangle" src={require('./assets/Rectangle21.png')} />
+          <div className="rectangle" />
+          <header className="HEADER">
+            <div className="overlap-group">
+              <div className="div" />
+              <img
+                className="element-USONA-logo-high"
+                alt="Element USONA logo high"
+                src={require('./assets/Logo.png')}
+              />
+              <div className="text-wrapper">AUDIO</div>
+            </div>
+          </header>
+          <div className="SETTINGS swiper-no-swiping">
+            <div className="overlap-2">
+              <div className="rectangle-2" />
+              <div className="PLAY-STOP">
+                <img className="PLAY-STOP-2" alt="Play STOP" src={require('./assets/Pause.png')} />
+              </div>
+              <div className="VOLUME">
+                <img className="VOLUME-ICON" alt="Volume ICON" src={require('./assets/VOLUMEICON.png')} />
+                <div className="SLIDER">
+                  <div className="overlap-group-2">
+                  <RangeSlider
+                      className="s_slider"
+                      defaultValue={[0, 1]}
+                      thumbsDisabled={[true, false]}
+                      rangeSlideDisabled={true}
+                      value = {volume}
+                      onInput={e => {setVolume(e); changeVolume()}}
+                    />
+                    
+                  </div>
+                </div>
+              </div>
+              <img className="line" alt="Line" src={require('./assets/LineAudio1.png')} />
+              <img className="line-2" alt="Line" src={require('./assets/LineAudio2.png')} />
+              <img className="SONG-ICON" alt="Song ICON" src={require('./assets/SONGICON.png')} />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
   </SwiperSlide>
 
         <SwiperSlide>

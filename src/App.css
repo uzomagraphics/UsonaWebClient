@@ -736,3 +736,1030 @@
   position: relative;
   width: 928px;
 }
+
+/**************ALIX*************************/
+/*EXPERIENCES*/
+.element-EXPERIENCES {
+  background-color: #ffffff;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 100%;
+}
+
+.element-EXPERIENCES .overlap-wrapper {
+  background-color: #ffffff;
+  height: 1080px;
+  overflow: hidden;
+  width: 1920px;
+}
+
+.element-EXPERIENCES .overlap {
+  height: 1083px;
+  position: relative;
+  top: -3px;
+  width: 1922px;
+}
+
+.element-EXPERIENCES .rectangle {
+  background-color: #d0e2ff33;
+  height: 1083px;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 1920px;
+}
+
+.element-EXPERIENCES .promousonalogowhite {
+  height: 1054px;
+  left: 0;
+  position: absolute;
+  top: 29px;
+  width: 1920px;
+}
+
+.element-EXPERIENCES .HEADER {
+  background-color: transparent;
+  height: 82px;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 1922px;
+}
+
+.element-EXPERIENCES .overlap-group {
+  height: 79px;
+  position: relative;
+  top: 3px;
+  width: 1920px;
+}
+
+.element-EXPERIENCES .div {
+  background-color: #ffffff;
+  box-shadow: 0px 5px 20px #0000001a;
+  height: 75px;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 1920px;
+}
+
+.element-EXPERIENCES .element-USONA-logo-high {
+  height: 79px;
+  left: 22px;
+  object-fit: cover;
+  position: absolute;
+  top: 0;
+  width: 202px;
+}
+
+.element-EXPERIENCES .text-wrapper {
+  color: #0000004c;
+  font-family: "Circular Std-Book", Helvetica;
+  font-size: 30px;
+  font-weight: 400;
+  left: 1677px;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  top: 27px;
+  white-space: nowrap;
+}
+
+.element-EXPERIENCES .element-RAIN-FOREST {
+  height: 368px;
+  left: 157px;
+  position: absolute;
+  top: 180px;
+  width: 368px;
+}
+
+.element-EXPERIENCES .overlap-2 {
+  height: 368px;
+  left: 40px;
+  position: relative;
+  width: 328px;
+}
+
+.element-EXPERIENCES .ellipse {
+  height: 368px;
+  left: 144px;
+  position: absolute;
+  top: 0;
+  width: 184px;
+}
+
+.element-EXPERIENCES .ellipseRot {
+  height: 368px;
+  left: -38px;
+  position: absolute;
+  top: 0;
+  width: 184px;
+  transform: scale(-1,1);
+}
+
+.element-EXPERIENCES .img {
+  height: 290px;
+  left: 0;
+  object-fit: cover;
+  position: absolute;
+  top: -2px;
+  width: 288px;
+  border-radius: 50%;
+}
+
+.element-EXPERIENCES .btnimg {
+  height: 288px;
+  left: 0;
+  object-fit: cover;
+  position: absolute;
+  top: 40px;
+  width: 287px;
+  border-radius: 50%;
+  background-color: #00000000;
+}
+
+.element-EXPERIENCES .WHITE-OPACITY {
+  background-color: #ffffff00;
+  border-radius: 144px;
+  height: 288px;
+  left: 0;
+  position: absolute;
+  top: 40px;
+  width: 288px;
+}
+
+.element-EXPERIENCES .element-OCEAN {
+  height: 368px;
+  left: 543px;
+  position: absolute;
+  top: 180px;
+  width: 368px;
+}
+
+.element-EXPERIENCES .img-2 {
+  height: 288px;
+  left: 0;
+  object-fit: cover;
+  position: absolute;
+  top: 0px;
+  width: 287px;
+}
+
+.element-EXPERIENCES .element-MEDITATION {
+  height: 368px;
+  left: 969px;
+  position: absolute;
+  top: 180px;
+  width: 368px;
+}
+
+.element-EXPERIENCES .element-MEDITATION-2 {
+  height: 288px;
+  left: 0;
+  position: absolute;
+  top: 0px;
+  width: 287px;
+}
+
+.element-EXPERIENCES .element-GALAXY {
+  height: 368px;
+  left: 1395px;
+  position: absolute;
+  top: 180px;
+  width: 368px;
+}
+
+.element-EXPERIENCES .element-SPIRAL-RS {
+  height: 368px;
+  left: 543px;
+  position: absolute;
+  top: 628px;
+  width: 368px;
+}
+
+.element-EXPERIENCES .element-REACTIVE-SCENE {
+  height: 368px;
+  left: 969px;
+  position: absolute;
+  top: 628px;
+  width: 368px;
+}
+
+/*EMOTIONAL VALENCE*/
+
+.element-EMOTIONAL-VALENCE {
+  background-color: #ffffff;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 100%;
+}
+
+.element-EMOTIONAL-VALENCE .overlap-wrapper {
+  background-color: #ffffff;
+  height: 1080px;
+  overflow: hidden;
+  width: 1920px;
+}
+
+.element-EMOTIONAL-VALENCE .overlap {
+  height: 1321px;
+  left: -132px;
+  position: relative;
+  top: -3px;
+  width: 2272px;
+}
+
+.element-EMOTIONAL-VALENCE .HEADER {
+  background-color: transparent;
+  height: 1321px;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 2272px;
+}
+
+.element-EMOTIONAL-VALENCE .overlap-group {
+  background-color: #d0e2ff33;
+  height: 1080px;
+  left: 132px;
+  position: relative;
+  top: 3px;
+  width: 1920px;
+}
+
+.element-EMOTIONAL-VALENCE .promousonalogowhite {
+  height: 1043px;
+  left: 0;
+  position: absolute;
+  top: 37px;
+  width: 1920px;
+}
+
+.element-EMOTIONAL-VALENCE .rectangle {
+  background-color: #ffffff;
+  box-shadow: 0px 5px 20px #0000001a;
+  height: 75px;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 1920px;
+}
+
+.element-EMOTIONAL-VALENCE .element-USONA-logo-high {
+  height: 79px;
+  left: 22px;
+  object-fit: cover;
+  position: absolute;
+  top: 0;
+  width: 202px;
+}
+
+.element-EMOTIONAL-VALENCE .text-wrapper {
+  color: #0000004c;
+  font-family: "Circular Std-Book", Helvetica;
+  font-size: 30px;
+  font-weight: 400;
+  left: 1551px;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  top: 27px;
+  white-space: nowrap;
+}
+
+.element-EMOTIONAL-VALENCE .SETTINGS {
+  height: 717px;
+  left: 1313px;
+  position: absolute;
+  top: 219px;
+  width: 476px;
+}
+
+.element-EMOTIONAL-VALENCE .div {
+  height: 717px;
+  position: relative;
+}
+
+.element-EMOTIONAL-VALENCE .rectangle-2 {
+  background-color: #ffffff;
+  border-radius: 30px;
+  box-shadow: 4px 4px 20px #00000026;
+  height: 717px;
+  left: 1px;
+  position: absolute;
+  top: 0;
+  width: 475px;
+}
+
+.element-EMOTIONAL-VALENCE .PLAY-STOP {
+  background-color: #d9d9d92e;
+  border: 1px solid;
+  border-color: #0000001a;
+  border-radius: 47px;
+  box-shadow: 1px 2px 4px #0000001a;
+  height: 94px;
+  left: 192px;
+  position: absolute;
+  top: 551px;
+  width: 94px;
+}
+
+.element-EMOTIONAL-VALENCE .img {
+  height: 29px;
+  left: 26px;
+  object-fit: cover;
+  position: absolute;
+  top: 32px;
+  width: 41px;
+}
+
+.element-EMOTIONAL-VALENCE .BRIGHTNESS {
+  height: 121px;
+  left: 48px;
+  position: absolute;
+  top: 58px;
+  width: 381px;
+}
+
+.element-EMOTIONAL-VALENCE .BRIGHTNESS-ICON {
+  height: 55px;
+  left: 167px;
+  object-fit: cover;
+  position: absolute;
+  top: 0;
+  width: 48px;
+}
+
+.element-EMOTIONAL-VALENCE .SLIDER {
+  height: 28px;
+  left: 0;
+  position: absolute;
+  top: 93px;
+  width: 381px;
+}
+
+.element-EMOTIONAL-VALENCE .overlap-group-2 {
+  height: 28px;
+  position: relative;
+}
+
+.element-EMOTIONAL-VALENCE .rectangle-3 {
+  height: 19px;
+  left: 0;
+  position: absolute;
+  top: 4px;
+  width: 381px;
+}
+
+.element-EMOTIONAL-VALENCE .CURSEUR {
+  background-color: #f8f8f8;
+  border: 1px solid;
+  border-color: #0000000d;
+  border-radius: 14px;
+  box-shadow: 1px 2px 4px #0000001a;
+  height: 28px;
+  left: 118px;
+  position: absolute;
+  top: 0;
+  width: 28px;
+}
+
+.element-EMOTIONAL-VALENCE .ellipse {
+  background-color: #d9d9d94c;
+  border: 1px solid;
+  border-color: #0000000d;
+  border-radius: 6px;
+  height: 12px;
+  left: 7px;
+  position: relative;
+  top: 7px;
+  width: 12px;
+}
+
+.element-EMOTIONAL-VALENCE .SPEED {
+  height: 117px;
+  left: 48px;
+  position: absolute;
+  top: 300px;
+  width: 381px;
+}
+
+.element-EMOTIONAL-VALENCE .overlap-group-wrapper {
+  height: 28px;
+  left: 0;
+  position: absolute;
+  top: 89px;
+  width: 381px;
+}
+
+.element-EMOTIONAL-VALENCE .ellipse-wrapper {
+  background-color: #f8f8f8;
+  border: 1px solid;
+  border-color: #0000000d;
+  border-radius: 14px;
+  box-shadow: 1px 2px 4px #0000001a;
+  height: 28px;
+  left: 239px;
+  position: absolute;
+  top: 0;
+  width: 28px;
+}
+
+.element-EMOTIONAL-VALENCE .SPEED-ICON {
+  height: 55px;
+  left: 165px;
+  position: absolute;
+  top: 0;
+  width: 51px;
+}
+
+.element-EMOTIONAL-VALENCE .line {
+  height: 1px;
+  left: 0;
+  object-fit: cover;
+  position: absolute;
+  top: 238px;
+  width: 476px;
+}
+
+.element-EMOTIONAL-VALENCE .line-2 {
+  height: 1px;
+  left: 0;
+  object-fit: cover;
+  position: absolute;
+  top: 477px;
+  width: 476px;
+}
+
+.element-EMOTIONAL-VALENCE .EMOTIONAL-CIRCLE {
+  height: 825px;
+  left: 390px;
+  position: absolute;
+  top: 165px;
+  width: 853px;
+}
+
+.element-EMOTIONAL-VALENCE .overlap-2 {
+  background-color: #ffffff;
+  border-radius: 412.5px;
+  height: 825px;
+  position: relative;
+  width: 825px;
+}
+
+.element-EMOTIONAL-VALENCE .FLOWER-OF-LIFE {
+  height: 810px;
+  left: 8px;
+  object-fit: cover;
+  position: absolute;
+  top: 7px;
+  width: 810px;
+}
+
+.element-EMOTIONAL-VALENCE .line-3 {
+  height: 518px;
+  left: 157px;
+  position: absolute;
+  top: 151px;
+  width: 518px;
+}
+
+.element-EMOTIONAL-VALENCE .line-4 {
+  height: 518px;
+  left: 157px;
+  position: absolute;
+  top: 155px;
+  width: 518px;
+}
+
+.element-EMOTIONAL-VALENCE .text-wrapper-2 {
+  color: #a3b986;
+  font-family: "Circular Std-Book", Helvetica;
+  font-size: 30px;
+  font-weight: 400;
+  left: 359px;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  top: 66px;
+  white-space: nowrap;
+}
+
+.element-EMOTIONAL-VALENCE .text-wrapper-3 {
+  color: #a3b986;
+  font-family: "Circular Std-Book", Helvetica;
+  font-size: 30px;
+  font-weight: 400;
+  left: 359px;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  text-align: center;
+  top: 732px;
+  white-space: nowrap;
+}
+
+.element-EMOTIONAL-VALENCE .text-wrapper-4 {
+  color: #a3b986;
+  font-family: "Circular Std-Book", Helvetica;
+  font-size: 30px;
+  font-weight: 400;
+  left: 471px;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  top: 136px;
+  white-space: nowrap;
+}
+
+.element-EMOTIONAL-VALENCE .text-wrapper-5 {
+  color: #a3b986;
+  font-family: "Circular Std-Book", Helvetica;
+  font-size: 30px;
+  font-weight: 400;
+  left: 59px;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  top: 391px;
+  white-space: nowrap;
+}
+
+.element-EMOTIONAL-VALENCE .text-wrapper-6 {
+  color: #a3b986;
+  font-family: "Circular Std-Book", Helvetica;
+  font-size: 30px;
+  font-weight: 400;
+  left: 109px;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  top: 310px;
+  white-space: nowrap;
+}
+
+.element-EMOTIONAL-VALENCE .text-wrapper-7 {
+  color: #a3b986;
+  font-family: "Circular Std-Book", Helvetica;
+  font-size: 30px;
+  font-weight: 400;
+  left: 699px;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  top: 310px;
+  white-space: nowrap;
+}
+
+.element-EMOTIONAL-VALENCE .text-wrapper-8 {
+  color: #87a0dc;
+  font-family: "Circular Std-Book", Helvetica;
+  font-size: 30px;
+  font-weight: 400;
+  left: 581px;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  top: 190px;
+  transform: rotate(-45deg);
+  white-space: nowrap;
+}
+
+.element-EMOTIONAL-VALENCE .text-wrapper-9 {
+  color: #87a0dc;
+  font-family: "Circular Std-Book", Helvetica;
+  font-size: 30px;
+  font-weight: 400;
+  left: 577px;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  top: 595px;
+  transform: rotate(45deg);
+  white-space: nowrap;
+}
+
+.element-EMOTIONAL-VALENCE .text-wrapper-10 {
+  color: #a3b986;
+  font-family: "Circular Std-Book", Helvetica;
+  font-size: 30px;
+  font-weight: 400;
+  left: 68px;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  top: 472px;
+  white-space: nowrap;
+}
+
+.element-EMOTIONAL-VALENCE .text-wrapper-11 {
+  color: #a3b986;
+  font-family: "Circular Std-Book", Helvetica;
+  font-size: 30px;
+  font-weight: 400;
+  left: 658px;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  top: 472px;
+  white-space: nowrap;
+}
+
+.element-EMOTIONAL-VALENCE .text-wrapper-12 {
+  color: #a3b986;
+  font-family: "Circular Std-Book", Helvetica;
+  font-size: 30px;
+  font-weight: 400;
+  left: 664px;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  top: 391px;
+  white-space: nowrap;
+}
+
+.element-EMOTIONAL-VALENCE .text-wrapper-13 {
+  color: #a3b986;
+  font-family: "Circular Std-Book", Helvetica;
+  font-size: 30px;
+  font-weight: 400;
+  left: 480px;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  text-align: center;
+  top: 672px;
+  white-space: nowrap;
+}
+
+.element-EMOTIONAL-VALENCE .text-wrapper-14 {
+  color: #a3b986;
+  font-family: "Circular Std-Book", Helvetica;
+  font-size: 30px;
+  font-weight: 400;
+  left: 252px;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  top: 136px;
+  white-space: nowrap;
+}
+
+.element-EMOTIONAL-VALENCE .text-wrapper-15 {
+  color: #a3b986;
+  font-family: "Circular Std-Book", Helvetica;
+  font-size: 30px;
+  font-weight: 400;
+  left: 252px;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  text-align: center;
+  top: 672px;
+  white-space: nowrap;
+}
+
+/************AUDIO****************/
+.element-AUDIO-STEP {
+  background-color: #ffffff;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 100%;
+}
+
+.element-AUDIO-STEP .overlap-wrapper {
+  background-color: #ffffff;
+  height: 1080px;
+  overflow: hidden;
+  width: 1920px;
+}
+
+.element-AUDIO-STEP .overlap {
+  height: 1083px;
+  position: relative;
+  top: -3px;
+  width: 1922px;
+}
+
+.element-AUDIO-STEP .img {
+  height: 1080px;
+  left: 0;
+  position: absolute;
+  top: 3px;
+  width: 1920px;
+}
+
+.element-AUDIO-STEP .HEADER {
+  background-color: transparent;
+  height: 82px;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 1922px;
+}
+
+.element-AUDIO-STEP .overlap-group {
+  height: 79px;
+  position: relative;
+  top: 3px;
+  width: 1920px;
+}
+
+.element-AUDIO-STEP .rectangle {
+  background-color: #ffffff;
+  box-shadow: 0px 5px 20px #0000001a;
+  height: 75px;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 1920px;
+}
+
+.element-AUDIO-STEP .element-USONA-logo-high {
+  height: 79px;
+  left: 22px;
+  object-fit: cover;
+  position: absolute;
+  top: 0;
+  width: 202px;
+}
+
+.element-AUDIO-STEP .text-wrapper {
+  color: #0000004c;
+  font-family: "Circular Std-Book", Helvetica;
+  font-size: 30px;
+  font-weight: 400;
+  left: 1777px;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  top: 27px;
+  white-space: nowrap;
+}
+
+.element-AUDIO-STEP .SETTINGS {
+  height: 478px;
+  left: 605px;
+  position: absolute;
+  top: 341px;
+  width: 710px;
+}
+
+.element-AUDIO-STEP .div {
+  background-image: url(./assets/Rectangle15.png);
+  background-size: 100% 100%;
+  height: 518px;
+  left: 606px;
+  position: absolute;
+  top: 338px;
+  width: 749px;
+}
+
+.element-AUDIO-STEP .overlap-2 {
+  height: 476px;
+  left: 15px;
+  position: absolute;
+  top: 17px;
+  width: 476px;
+}
+
+.element-AUDIO-STEP .PLAY-STOP {
+  background-color: #d9d9d92e;
+  border: 1px solid;
+  border-color: #0000001a;
+  border-radius: 47px;
+  box-shadow: 1px 2px 4px #0000001a;
+  height: 94px;
+  left: 192px;
+  position: absolute;
+  top: 313px;
+  width: 94px;
+}
+
+.element-AUDIO-STEP .PLAY-STOP-2 {
+  height: 29px;
+  left: 26px;
+  object-fit: cover;
+  position: absolute;
+  top: 32px;
+  width: 41px;
+}
+
+.element-AUDIO-STEP .VOLUME {
+  height: 124px;
+  left: 48px;
+  position: absolute;
+  top: 54px;
+  width: 381px;
+}
+
+.element-AUDIO-STEP .VOLUME-ICON {
+  height: 61px;
+  left: 164px;
+  position: absolute;
+  top: 0;
+  width: 54px;
+}
+
+.element-AUDIO-STEP .SLIDER {
+  height: 28px;
+  left: 0;
+  position: absolute;
+  top: 96px;
+  width: 381px;
+}
+
+.element-AUDIO-STEP .overlap-group-2 {
+  height: 28px;
+  position: relative;
+}
+
+.element-AUDIO-STEP .rectangle-2 {
+  height: 19px;
+  left: 0;
+  position: absolute;
+  top: 4px;
+  width: 381px;
+}
+
+.element-AUDIO-STEP .CURSEUR {
+  background-color: #f8f8f8;
+  border: 1px solid;
+  border-color: #0000000d;
+  border-radius: 14px;
+  box-shadow: 1px 2px 4px #0000001a;
+  height: 28px;
+  left: 266px;
+  position: absolute;
+  top: 0;
+  width: 28px;
+}
+
+.element-AUDIO-STEP .ellipse {
+  background-color: #d9d9d94c;
+  border: 1px solid;
+  border-color: #0000000d;
+  border-radius: 6px;
+  height: 12px;
+  left: 7px;
+  position: relative;
+  top: 7px;
+  width: 12px;
+}
+
+.element-AUDIO-STEP .overlap-3 {
+  height: 476px;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 476px;
+}
+
+.element-AUDIO-STEP .line {
+  height: 1px;
+  left: 0;
+  object-fit: cover;
+  position: absolute;
+  top: 237px;
+  width: 476px;
+}
+
+.element-AUDIO-STEP .line-2 {
+  height: 476px;
+  left: 475px;
+  object-fit: cover;
+  position: absolute;
+  top: 0;
+  width: 1px;
+}
+
+.element-AUDIO-STEP .SONG-ICON {
+  height: 77px;
+  left: 558px;
+  object-fit: cover;
+  position: absolute;
+  top: 207px;
+  width: 103px;
+}
+
+
+
+
+
+
+
+
+/* Gradient Range Slider */
+#range-slider-gradient {
+  height: 24px;
+  border-radius: 12px;
+  background: #353644;
+}
+
+#range-slider-gradient .range-slider__thumb {
+  border: 6px solid #fff;
+  box-sizing: border-box;
+}
+
+#range-slider-gradient .range-slider__thumb[data-lower] {
+  background: #0073e6;
+}
+
+#range-slider-gradient .range-slider__thumb[data-upper] {
+  background: #ee2c2c;
+}
+
+#range-slider-gradient .range-slider__range {
+  background: linear-gradient(to right, #0073e6, #ee2c2c);
+  background-size: 200% 100%;
+  background-position: 50% 0;
+}
+
+#range-slider-gradient .range-slider__range[data-active],
+#range-slider-gradient
+  .range-slider__thumb[data-active]
+  ~ .range-slider__range {
+  animation: move-bg 0.75s infinite linear;
+}
+
+@keyframes move-bg {
+  0% {
+    background-position: 50% 0;
+  }
+
+  25% {
+    background-position: 100% 0;
+  }
+
+  50% {
+    background-position: 50% 0;
+  }
+
+  75% {
+    background-position: 0% 0;
+  }
+
+  100% {
+    background-position: 50% 0;
+  }
+}
+
+/* SLIDERS*/
+
+/*BRIGHTNESS*/
+.b_slider .range-slider__thumb[data-lower] {
+  width: 0;
+}
+.b_slider .range-slider__thumb[data-upper] {
+  border: 9px solid #F8F8F8;
+  width: 12px;
+  height: 12px;
+}
+.b_slider{
+  background: linear-gradient(to right, #ffffff, #EAF5E2, #D0E2FF);
+  background-size: 200% 100%;
+  background-position: 50% 0;
+  height: 20px;
+  border-radius: 15px;
+}
+.b_slider .range-slider__range {
+  background: #00000000;
+  background-size: 200% 100%;
+  background-position: 50% 0;
+  height: 20px;
+  border-radius: 15px;
+}
+.b_slider .range-slider__thumb[data-upper] {
+  background: #e3e3e38a;
+}
+
+/*SPEED*/
+.s_slider .range-slider__thumb[data-lower] {
+  width: 0;
+}
+.s_slider .range-slider__thumb[data-upper] {
+  border: 9px solid #F8F8F8;
+  width: 12px;
+  height: 12px;
+}
+.s_slider{
+  background: linear-gradient(to right, #D8EFF2, #C9CCE5, #FDEBF3, #FFE6CE);
+  background-size: 200% 100%;
+  background-position: 50% 0;
+  height: 20px;
+  border-radius: 15px;
+}
+.s_slider .range-slider__range {
+  background: #00000000;
+  background-size: 200% 100%;
+  background-position: 50% 0;
+  height: 24px;
+  border-radius: 15px;
+}
+.s_slider .range-slider__thumb[data-upper] {
+  background: #e3e3e38a;
+}
+
