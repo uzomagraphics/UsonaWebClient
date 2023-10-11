@@ -1,5 +1,8 @@
 import React, { useEffect, useState  } from 'react';
 import useWebSocket from 'react-use-websocket';
+
+import autoAnimate from '@formkit/auto-animate'
+
 import RangeSlider from 'react-range-slider-input';
 import "react-range-slider-input/dist/style.css";
 
@@ -20,7 +23,7 @@ import "./fonts/RooneySans-Bold.ttf";
 import "./fonts/RooneySans-Regular.ttf";
 
 
-const WS_URL = 'ws://192.168.1.66:8000';
+const WS_URL = 'ws://localhost:8000';
 
 function App() {
   const { } = useWebSocket(WS_URL, {
@@ -43,6 +46,10 @@ function App() {
     share: true,
     filter: () => false
   });
+
+  ///////////ANIMATE
+
+  //////////////////////
  
   var [slider1, setSlider1] = useState('');
   const changeSlider1 = () => {
@@ -61,7 +68,7 @@ function App() {
   };
 
 /////////EMOTIONAL VALENCE////////
-var [play_pause, setPlay_pause] = useState(true);
+var [play_pause, setPlay_pause] = useState('play');
 const changePlay_pause = () => {
   console.log("Send play_pause = " + play_pause)
   sendMessage(JSON.stringify({ 
@@ -440,7 +447,9 @@ const sendBacnetSlider = (num, id) => {
               </div>
               <img className="line" alt="Line" src={require('./assets/LineAudio1.png')} />
               <img className="line-2" alt="Line" src={require('./assets/LineAudio2.png')} />
+              <div>
               <img className="SONG-ICON" alt="Song ICON" src={require('./assets/SONGICON.png')} />
+              </div>
             </div>
           </div>
         </div>
