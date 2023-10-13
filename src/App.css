@@ -1452,6 +1452,28 @@
   width: 1920px;
 }
 
+.element-AUDIO-STEP .img2 {
+  height: 29px;
+  left: 26px;
+  object-fit: cover;
+  position: absolute;
+  top: 32px;
+  width: 41px;
+}
+
+.element-AUDIO-STEP .btnimg2 {
+  background-color: #d9d9d900;
+  border: 1px solid;
+  border-color: #00000000;
+  border-radius: 47px;
+  box-shadow: 1px 2px 4px #0000001a;
+  height: 94px;
+  left: 0px;
+  position: absolute;
+  top: 0px;
+  width: 94px;
+}
+
 .element-AUDIO-STEP .HEADER {
   background-color: transparent;
   height: 82px;
@@ -1644,11 +1666,1319 @@
   top: 207px;
   width: 103px;
 }
+/*AUDIO */
+.element-AUDIO-STEP .INPUT-SOURCE {
+  height: 411px;
+  left: 476px;
+  position: absolute;
+  top: 20px;
+  width: 242px;
 
+  }
 
+  .element-AUDIO-STEP .BACK {
+    height: 18px;
+    left: 31px;
+    object-fit: cover;
+    position: absolute;
+    top: 10px;
+    width: 18px;
 
+    }
+    .element-AUDIO-STEP .text-wrapper-2 {
+    color: #000000;
+    font-family: "Circular Std-Book", Helvetica;
+    font-size: 15px;
+    font-weight: 400;
+    left: 57px;
+    letter-spacing: 0;
+    line-height: normal;
+    position: absolute;
+    top: 45px;
+    white-space: nowrap;
+    }
+    .element-AUDIO-STEP .text-wrapper-3 {
+    color: #000000;
+    font-family: "Circular Std-Book", Helvetica;
+    font-size: 15px;
+    font-weight: 400;
+    left: 57px;
+    letter-spacing: 0;
+    line-height: normal;
+    position: absolute;
+    top: 45px;
+    white-space: nowrap;
+    }
+    .element-AUDIO-STEP .text-wrapper-4 {
+    color: #000000;
+    font-family: "Circular Std-Book", Helvetica;
+    font-size: 15px;
+    font-weight: 400;
+    left: 57px;
+    letter-spacing: 0;
+    line-height: normal;
+    position: absolute;
+    top: 45px;
+    white-space: nowrap;
+    }
+    .element-AUDIO-STEP .text-wrapper-5 {
+    color: #000000;
+    font-family: "Circular Std-Book", Helvetica;
+    font-size: 15px;
+    font-weight: 400;
+    left: 57px;
+    letter-spacing: 0;
+    line-height: normal;
+    position: absolute;
+    top: 45px;
+    white-space: nowrap;
+    }
 
+    .element-AUDIO-STEP .line-3 {
+      height: 11px;
+      left: 10px;
+      object-fit: cover;
+      position: absolute;
+      top: 139px;
+      width: 244px;
+      }
+      .element-AUDIO-STEP .line-4 {
+      height: 11px;
+      left: 10px;
+      object-fit: cover;
+      position: absolute;
+      top: 34px;
+      width: 244px;
+      }
+      .element-AUDIO-STEP .line-5 {
+      height: 11px;
+      left: 10px;
+      object-fit: cover;
+      position: absolute;
+      top: 244px;
+      width: 244px;
+      }
+      .element-AUDIO-STEP .line-6 {
+      height: 11px;
+      left: 10px;
+      object-fit: cover;
+      position: absolute;
+      top: 349px;
+      width: 244px;
+      }
+      .element-AUDIO-STEP .SONG-ICON2 {
+        height: 18px;
+        left: 200px;
+        position: absolute;
+        top: 8px;
+        width: 24px;
+        }
 
+/*BOXEsss////*/
+.element-AUDIO-STEP .rectangle-4btn {
+  background-color: #d9d9d900;
+  height: 99px;
+  left: 19px;
+  position: absolute;
+  top:40px;
+  width: 226px;
+  }
+.element-AUDIO-STEP .rectangle-5btn {
+  background-color: #d9d9d900;
+  height: 99px;
+  left: 19px;
+  position: absolute;
+  top:145px;
+  width: 226px;
+  }
+.element-AUDIO-STEP .rectangle-6btn {
+  background-color: #d9d9d900;
+  height: 99px;
+  left: 19px;
+  position: absolute;
+  top:250px;
+  width: 226px;
+  }
+.element-AUDIO-STEP .rectangle-7btn {
+  background-color: #d9d9d900;
+  height: 113px;
+  left: 19px;
+  position: absolute;
+  top:357px;
+  width: 226px;
+  border-radius: 0 0 25px 0px;
+  }
+  .element-AUDIO-STEP .rectangle-4 {
+    background-color: #d9d9d956;
+    height: 99px;
+    left: 19px;
+    position: absolute;
+    top:40px;
+    width: 226px;
+    }
+  .element-AUDIO-STEP .rectangle-5 {
+    background-color: #d9d9d956;
+    height: 99px;
+    left: 19px;
+    position: absolute;
+    top:145px;
+    width: 226px;
+    }
+  .element-AUDIO-STEP .rectangle-6 {
+    background-color: #d9d9d956;
+    height: 99px;
+    left: 19px;
+    position: absolute;
+    top:250px;
+    width: 226px;
+    }
+  .element-AUDIO-STEP .rectangle-7 {
+    background-color: #d9d9d956;
+    height: 113px;
+    left: 19px;
+    position: absolute;
+    top:357px;
+    width: 226px;
+    border-radius: 0 0 25px 0px;
+    }
+/*********LIGHT***********/
+.element-LIGHTNING {
+  background-color: #ffffff;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 100%;
+}
+
+.element-LIGHTNING .overlap-wrapper {
+  background-color: #ffffff;
+  height: 1080px;
+  overflow: hidden;
+  width: 1920px;
+}
+
+.element-LIGHTNING .overlap {
+  height: 1083px;
+  position: relative;
+  top: -3px;
+  width: 1922px;
+}
+
+.element-LIGHTNING .promousonalogowhite {
+  height: 1080px;
+  left: 0;
+  position: absolute;
+  top: 3px;
+  width: 1920px;
+}
+
+.element-LIGHTNING .rectangle {
+  background-color: #d0e2ff33;
+  height: 1080px;
+  left: 0;
+  position: absolute;
+  top: 3px;
+  width: 1920px;
+}
+
+.element-LIGHTNING .HEADER {
+  background-color: transparent;
+  height: 82px;
+  left: 0;
+  position: absolute;
+  top: -10px;
+  width: 1922px;
+}
+
+.element-LIGHTNING .overlap-group {
+  height: 79px;
+  position: relative;
+  top: 3px;
+  width: 1920px;
+}
+
+.element-LIGHTNING .div {
+  background-color: #ffffff;
+  box-shadow: 0px 5px 20px #0000001a;
+  height: 75px;
+  left: 0;
+  position: absolute;
+  top: -12px;
+  width: 1920px;
+}
+
+.element-LIGHTNING .element-USONA-logo-high {
+  height: 79px;
+  left: 22px;
+  object-fit: cover;
+  position: absolute;
+  top: 0;
+  width: 202px;
+}
+
+.element-LIGHTNING .text-wrapper {
+  color: #ff0000;
+  font-family: "Circular Std-Book", Helvetica;
+  font-size: 300px;
+  font-weight: 400;
+  left: 1706px;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  top: 27px;
+  white-space: nowrap;
+}
+.element-LIGHTNING .textLight {
+  color: #0000004c;
+font-family: "Circular Std-Book", Helvetica;
+font-size: 30px;
+font-weight: 400;
+left: 1706px;
+letter-spacing: 0;
+line-height: normal;
+position: absolute;
+top: 27px;
+white-space: nowrap;
+}
+
+.element-LIGHTNING .SETTINGS {
+  height: 478px;
+  left: 605px;
+  position: absolute;
+  top: 341px;
+  width: 710px;
+}
+
+.element-LIGHTNING .overlap-2 {
+  height: 478px;
+  position: relative;
+}
+
+.element-LIGHTNING .rectangle-2 {
+  background-color: #ffffff;
+  border-radius: 30px;
+  box-shadow: 4px 4px 20px #00000026;
+  height: 478px;
+  left: 1px;
+  position: absolute;
+  top: 0;
+  width: 709px;
+}
+
+.element-LIGHTNING .line {
+  height: 1px;
+  left: 0;
+  object-fit: cover;
+  position: absolute;
+  top: 238px;
+  width: 710px;
+}
+
+.element-LIGHTNING .line2 {
+  height: 238px;
+  left: 490px;
+  object-fit: cover;
+  position: absolute;
+  top: 238px;
+  width: 1px;
+  }
+
+.element-LIGHTNING .img {
+  height: 238px;
+  left: 475px;
+  object-fit: cover;
+  position: absolute;
+  top: 239px;
+  width: 1px;
+}
+
+.element-LIGHTNING .BRIGHTNESS {
+  height: 121px;
+  left: 652px;
+  position: absolute;
+  top: 628px;
+  width: 381px;
+}
+
+.element-LIGHTNING .BRIGHTNESS-ICON {
+  height: 55px;
+  left: 167px;
+  object-fit: cover;
+  position: absolute;
+  top: 0;
+  width: 48px;
+}
+
+.element-LIGHTNING .SLIDER {
+  height: 28px;
+  left: 0;
+  position: absolute;
+  top: 93px;
+  width: 381px;
+}
+
+.element-LIGHTNING .overlap-group-2 {
+  height: 28px;
+  position: relative;
+}
+
+.element-LIGHTNING .rectangle-3 {
+  height: 19px;
+  left: 0;
+  position: absolute;
+  top: 4px;
+  width: 381px;
+}
+
+.element-LIGHTNING .CURSEUR {
+  background-color: #f8f8f8;
+  border: 1px solid;
+  border-color: #0000000d;
+  border-radius: 14px;
+  box-shadow: 1px 2px 4px #0000001a;
+  height: 28px;
+  left: 118px;
+  position: absolute;
+  top: 0;
+  width: 28px;
+}
+.element-LIGHTNING .CURSEUR2 {
+  background-color: #f8f8f8;
+  border: 1px solid;
+  border-color: #0000000d;
+  border-radius: 14px;
+  box-shadow: 1px 2px 4px #0000001a;
+  height: 28px;
+  left: 38px;
+  position: absolute;
+  top: 0;
+  width: 28px;
+}
+
+.element-LIGHTNING .ellipse {
+  background-color: #d9d9d94c;
+  border: 1px solid;
+  border-color: #0000000d;
+  border-radius: 6px;
+  height: 12px;
+  left: 7px;
+  position: relative;
+  top: 7px;
+  width: 12px;
+}
+
+.element-LIGHTNING .MOTOR-CONTROL {
+  height: 332px;
+  left: 688px;
+  position: absolute;
+  top: 396px;
+  width: 544px;
+}
+
+.element-LIGHTNING .ON-OFF {
+  height: 57px;
+  left: 480px;
+  position: absolute;
+  top: 275px;
+  width: 64px;
+}
+
+.element-LIGHTNING .overlap-group {
+  background-image: url(./assets/ONOFF.png);
+  background-size: 100% 100%;
+  height: 30px;
+  left: 0;
+  position: absolute;
+  top: 27px;
+  width: 62px;
+  }
+
+  .element-LIGHTNING .CURSEUR {
+    height: 28px;
+    left: 1px;
+    position: absolute;
+    top: -1px;
+    width: 28px;
+    }
+
+.element-LIGHTNING .CURSEUR-wrapper {
+  /*background-image: url(./image.png);*/
+  background-size: 100% 100%;
+  height: 30px;
+  left: 0;
+  position: absolute;
+  top: 27px;
+  width: 62px;
+}
+
+.element-LIGHTNING .text-wrapper {
+  color: #0000004c;
+  font-family: "Circular Std-Book", Helvetica;
+  font-size: 10px;
+  font-weight: 400;
+  left: 11px;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  top: 0;
+  white-space: nowrap;
+  }
+
+.element-LIGHTNING .ellipse-wrapper {
+  background-color: #f8f8f8;
+  border: 1px solid;
+  border-color: #0000001a;
+  border-radius: 14px;
+  height: 28px;
+  left: 1px;
+  position: relative;
+  top: 1px;
+  width: 28px;
+}
+
+.element-LIGHTNING .ellipse-2 {
+  background-color: #d9d9d94c;
+  border: 1px solid;
+  border-color: #0000001a;
+  border-radius: 6px;
+  height: 12px;
+  left: 7px;
+  position: relative;
+  top: 7px;
+  width: 12px;
+}
+
+.element-LIGHTNING .text-wrapper-2 {
+  color: #0000004c;
+  font-family: "Circular Std-Book", Helvetica;
+  font-size: 10px;
+  font-weight: 400;
+  left: 11px;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  top: 0;
+  white-space: nowrap;
+}
+
+.element-LIGHTNING .UP-DOWN1 {
+  background-color: #0066ff00;
+  border: 1px solid;
+  border-color: #00000000;
+  border-radius: 0px 0px 30px 30px;
+  height: 61px;
+  left: 0;
+  position: absolute;
+  top: 61px;
+  width: 91px;
+}
+
+.element-LIGHTNING .UP-DOWN2 {
+  background-color: #ff000000;
+  border: 1px solid;
+  border-color: #00000000;
+  border-radius: 30px 30px 0px 0px;
+  height: 61px;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 91px;
+}
+
+.element-LIGHTNING .UP-DOWN {
+  background-color: #d9d9d92e;
+  border: 1px solid;
+  border-color: #0000001a;
+  border-radius: 30px;
+  box-shadow: 1px 2px 4px #0000001a;
+  height: 122px;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 91px;
+}
+
+.element-LIGHTNING .UP {
+  height: 37px;
+  left: 32px;
+  position: absolute;
+  top: 10px;
+  width: 26px;
+}
+
+.element-LIGHTNING .DOWN {
+  height: 37px;
+  left: 32px;
+  position: absolute;
+  top: 10px;
+  width: 26px;
+}
+
+.element-LIGHTNING .line-2 {
+  height: 1px;
+  left: 0;
+  object-fit: cover;
+  position: absolute;
+  top: 59px;
+  width: 89px;
+}
+
+.element-LIGHTNING .OPEN {
+  background-color: #d9d9d900;
+  border: 0px solid;
+  border-color: #00000000;
+  border-radius: 30px;
+ 
+  height: 129px;
+  left: 121px;
+  position: absolute;
+  top: 0;
+  width: 130px;
+}
+
+.element-LIGHTNING .rectangle-4 {
+  border: 1px solid;
+  border-color: transparent;
+  border-image: linear-gradient(to bottom, rgb(135, 160, 220), rgb(163, 185, 134)) 1;
+  border-radius: 20px;
+  height: 66px;
+  left: 26px;
+  position: relative;
+  top: 27px;
+  width: 66px;
+}
+
+.element-LIGHTNING .overlap-3 {
+  height: 122px;
+  left: 272px;
+  position: absolute;
+  top: 0;
+  width: 272px;
+}
+
+.element-LIGHTNING .HALF-OPEN {
+  background-color: #d9d9d900;
+  border: 1px solid;
+  border-color: #00000000;
+  border-radius: 30px;
+  box-shadow: 1px 2px 4px #00000000;
+  height: 129px;
+  left: 268px;
+  position: absolute;
+  top: 0;
+  width: 130px;
+}
+
+.element-LIGHTNING .rectangle-5 {
+  background-color: #d9d9d92e;
+  border: 1px solid;
+  border-color: #0000001a;
+  border-radius: 30px;
+  box-shadow: 1px 2px 4px #0000001a;
+  height: 122px;
+  left: 0px;
+  position: absolute;
+  top: 0;
+  width: 121px;
+}
+
+.element-LIGHTNING .rectangle-wrapper {
+  border-radius: 10px;
+  height: 66px;
+  left: 28px;
+  position: absolute;
+  top: 28px;
+  width: 66px;
+}
+
+.element-LIGHTNING .rectangle-6 {
+  height: 32px;
+  left: 1px;
+  position: absolute;
+  top: 0px;
+  width: 64px;
+}
+
+.element-LIGHTNING .CLOSE {
+  background-color: #d9d9d900;
+  height: 129px;
+  left: 420px;
+  position: absolute;
+  top: 0;
+  width: 130px;
+}
+
+.element-LIGHTNING .POSITION {
+  height: 122px;
+  position: relative;
+}
+
+.element-LIGHTNING .rectangle-7 {
+  background-color: #d9d9d92e;
+  border: 1px solid;
+  border-color: #0000001a;
+  border-radius: 30px;
+  box-shadow: 1px 2px 4px #0000001a;
+  height: 122px;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 121px;
+}
+
+.element-LIGHTNING .rectangle-8 {
+  height: 66px;
+  left: 28px;
+  position: absolute;
+  top: 28px;
+  width: 66px;
+}
+
+/************MOTOR CONTROL*************/
+.element-MOTOR-CONTROL {
+  background-color: #ffffff;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 100%;
+}
+
+.element-MOTOR-CONTROL .overlap-wrapper {
+  background-color: #ffffff;
+  height: 1080px;
+  overflow: hidden;
+  width: 1920px;
+}
+
+.element-MOTOR-CONTROL .overlap {
+  height: 1085px;
+  left: -1px;
+  position: relative;
+  top: -3px;
+  width: 1923px;
+}
+
+.element-MOTOR-CONTROL .promousonalogowhite {
+  height: 1080px;
+  left: 1px;
+  position: absolute;
+  top: 3px;
+  width: 1920px;
+}
+
+.element-MOTOR-CONTROL .rectangle {
+  background-color: #d0e2ff33;
+  height: 1080px;
+  left: 0;
+  position: absolute;
+  top: 5px;
+  width: 1920px;
+}
+
+.element-MOTOR-CONTROL .HEADER {
+  background-color: transparent;
+  height: 82px;
+  left: 1px;
+  position: absolute;
+  top: 0;
+  width: 1922px;
+}
+
+.element-MOTOR-CONTROL .overlap-group {
+  height: 79px;
+  position: relative;
+  top: 3px;
+  width: 1920px;
+}
+
+.element-MOTOR-CONTROL .div {
+  background-color: #ffffff;
+  box-shadow: 0px 5px 20px #0000001a;
+  height: 75px;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 1920px;
+}
+
+.element-MOTOR-CONTROL .element-USONA-logo-high {
+  height: 79px;
+  left: 22px;
+  object-fit: cover;
+  position: absolute;
+  top: 0;
+  width: 202px;
+}
+
+.element-MOTOR-CONTROL .text-wrapper {
+  color: #0000004c;
+  font-family: "Circular Std-Book", Helvetica;
+  font-size: 30px;
+  font-weight: 400;
+  left: 1578px;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  top: 27px;
+  white-space: nowrap;
+}
+
+.element-MOTOR-CONTROL .SETTINGS {
+  height: 606px;
+  left: 235px;
+  position: absolute;
+  top: 280px;
+  width: 1431px;
+}
+
+.element-MOTOR-CONTROL .overlap-2 {
+  background-color: #ffffff;
+  border-radius: 30px;
+  box-shadow: 4px 4px 20px #00000026;
+  height: 606px;
+  position: relative;
+  width: 1427px;
+}
+
+.element-MOTOR-CONTROL .overlap-group-2 {
+  height: 604px;
+  left: 0;
+  position: absolute;
+  top: 1px;
+  width: 1427px;
+}
+
+.element-MOTOR-CONTROL .line {
+  height: 604px;
+  left: 714px;
+  object-fit: cover;
+  position: absolute;
+  top: 0;
+  width: 1px;
+}
+
+.element-MOTOR-CONTROL .img {
+  height: 1px;
+  left: 0;
+  object-fit: cover;
+  position: absolute;
+  top: 110px;
+  width: 1427px;
+}
+
+.element-MOTOR-CONTROL .text-wrapper-2 {
+  color: #0000004c;
+  font-family: "Circular Std-Book", Helvetica;
+  font-size: 30px;
+  font-weight: 400;
+  left: 225px;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  top: 37px;
+  white-space: nowrap;
+}
+
+.element-MOTOR-CONTROL .text-wrapper-3 {
+  color: #0000004c;
+  font-family: "Circular Std-Book", Helvetica;
+  font-size: 30px;
+  font-weight: 400;
+  left: 1012px;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  top: 37px;
+  white-space: nowrap;
+}
+
+.element-MOTOR-CONTROL .MOTOR-CONTROL {
+  height: 284px;
+  left: 91px;
+  position: absolute;
+  top: 209px;
+  width: 533px;
+}
+
+.element-MOTOR-CONTROL .UP-DOWN {
+  background-color: #d9d9d92e;
+  border: 1px solid;
+  border-color: #0000001a;
+  border-radius: 30px;
+  box-shadow: 1px 2px 4px #0000001a;
+  height: 122px;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 91px;
+}
+
+.element-MOTOR-CONTROL .UP-DOWN1 {
+  background-color: #0066ff00;
+  border: 1px solid;
+  border-color: #00000000;
+  border-radius: 0px 0px 30px 30px;
+  height: 61px;
+  left: 0;
+  position: absolute;
+  top: 61px;
+  width: 91px;
+}
+
+.element-MOTOR-CONTROL .UP-DOWN2 {
+  background-color: #ff000000;
+  border: 1px solid;
+  border-color: #00000000;
+  border-radius: 30px 30px 0px 0px;
+  height: 61px;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 91px;
+}
+
+.element-MOTOR-CONTROL .UP {
+  height: 37px;
+  left: 32px;
+  position: absolute;
+  top: 10px;
+  width: 26px;
+}
+
+.element-MOTOR-CONTROL .DOWN {
+  height: 37px;
+  left: 32px;
+  position: absolute;
+  top: 10px;
+  width: 26px;
+}
+
+.element-MOTOR-CONTROL .line-2 {
+  height: 1px;
+  left: 0;
+  object-fit: cover;
+  position: absolute;
+  top: 59px;
+  width: 89px;
+}
+
+.element-MOTOR-CONTROL .POSITION {
+  background-color: #d9d9d900;
+  border: 0px solid;
+  border-color: #00000000;
+  border-radius: 30px;
+  box-shadow: 1px 2px 4px #00000000;
+  height: 122px;
+  left: 116px;
+  position: absolute;
+  top: 0;
+  width: 121px;
+}
+
+.element-MOTOR-CONTROL .POSITIONbtn {
+
+  border-radius: 30px;
+  height: 130px;
+  left: 0px;
+  position: absolute;
+  top: 0;
+  width: 130px;
+}
+
+.element-MOTOR-CONTROL .rectangle-2 {
+  height: 11px;
+  left: 21px;
+  object-fit: cover;
+  position: absolute;
+  top: 29px;
+  width: 78px;
+}
+
+.element-MOTOR-CONTROL .rectangle-3 {
+  border: 0.5px solid;
+  border-color: #00000066;
+  border-radius: 100px;
+  height: 11px;
+  left: 21px;
+  position: absolute;
+  top: 55px;
+  width: 78px;
+}
+
+.element-MOTOR-CONTROL .rectangle-4 {
+  border: 0.5px solid;
+  border-color: #00000066;
+  border-radius: 100px;
+  height: 11px;
+  left: 21px;
+  position: absolute;
+  top: 80px;
+  width: 78px;
+}
+
+.element-MOTOR-CONTROL .POSITION-2 {
+  background-color: #d9d9d900;
+  border: 1px solid;
+  border-color: #00000000;
+  border-radius: 30px;
+  box-shadow: 1px 2px 4px #00000000;
+  height: 122px;
+  left: 264px;
+  position: absolute;
+  top: 0;
+  width: 121px;
+}
+
+.element-MOTOR-CONTROL .rectangle-5 {
+  height: 11px;
+  left: 21px;
+  object-fit: cover;
+  position: absolute;
+  top: 55px;
+  width: 78px;
+}
+
+.element-MOTOR-CONTROL .rectangle-6 {
+  border: 0.5px solid;
+  border-color: #00000066;
+  border-radius: 100px;
+  height: 11px;
+  left: 21px;
+  position: absolute;
+  top: 29px;
+  width: 78px;
+}
+
+.element-MOTOR-CONTROL .POSITION-3 {
+  background-color: #d9d9d900;
+  border: 1px solid;
+  border-color: #00000000;
+  border-radius: 30px;
+  box-shadow: 1px 2px 4px #00000000;
+  height: 122px;
+  left: 412px;
+  position: absolute;
+  top: 0;
+  width: 121px;
+}
+
+.element-MOTOR-CONTROL .rectangle-7 {
+  height: 11px;
+  left: 21px;
+  object-fit: cover;
+  position: absolute;
+  top: 80px;
+  width: 78px;
+}
+
+.element-MOTOR-CONTROL .EMERGENCY-STOP {
+  background-color: #d9d9d92e;
+  border: 1px solid;
+  border-color: #0000001a;
+  border-radius: 47px;
+  box-shadow: 1px 2px 4px #0000001a;
+  height: 94px;
+  left: 228px;
+  position: absolute;
+  top: 190px;
+  width: 94px;
+}
+
+.element-MOTOR-CONTROL .rectangle-8 {
+  border: 1.5px solid;
+  border-color: #00000033;
+  height: 33px;
+  left: 21px;
+  position: relative;
+  top: 0px;
+  width: 33px;
+}
+
+.element-MOTOR-CONTROL .SYSTEM {
+  height: 157px;
+  left: 982px;
+  position: absolute;
+  top: 249px;
+  width: 175px;
+}
+
+.element-MOTOR-CONTROL .REBOOT {
+  background-color: #d9d9d92e;
+  border: 1px solid;
+  border-color: #0000001a;
+  border-radius: 47px;
+  box-shadow: 1px 2px 4px #0000001a;
+  height: 94px;
+  left: 41px;
+  position: absolute;
+  top: 63px;
+  width: 94px;
+}
+
+.element-MOTOR-CONTROL .POWER {
+  height: 45px;
+  left: 26px;
+  object-fit: cover;
+  position: absolute;
+  top: 23px;
+  width: 41px;
+}
+
+.element-MOTOR-CONTROL .TD-STATUS {
+  height: 12px;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 177px;
+}
+
+.element-MOTOR-CONTROL .touch-designer {
+  color: #000000;
+  font-family: "Circular Std-Regular", Helvetica;
+  font-size: 15px;
+  font-weight: 400;
+  left: 0;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  top: 0;
+  white-space: nowrap;
+}
+
+.element-MOTOR-CONTROL .span {
+  color: #000000;
+  font-family: "Circular Std-Regular", Helvetica;
+  font-size: 15px;
+  font-weight: 400;
+  letter-spacing: 0;
+}
+
+.element-MOTOR-CONTROL .text-wrapper-4 {
+  font-family: "Circular Std-Light", Helvetica;
+  font-weight: 300;
+}
+
+.element-MOTOR-CONTROL .ellipse {
+  background-color: #00ff44;
+  border-radius: 4.5px;
+  height: 9px;
+  left: 166px;
+  position: absolute;
+  top: 3px;
+  width: 9px;
+}
+.element-MOTOR-CONTROL .ellipse2 {
+  background-color: #ff0000;
+  border-radius: 4.5px;
+  height: 9px;
+  left: 166px;
+  position: absolute;
+  top: 3px;
+  width: 9px;
+}
+
+/**********LOGIN**********/
+.element-LOGIN {
+  background-color: #ffffff;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 100%;
+}
+
+.element-LOGIN .overlap-wrapper {
+  background-color: #ffffff;
+  height: 1080px;
+  width: 1920px;
+}
+
+.element-LOGIN .overlap {
+  background-image: url(./assets/PromoUSONA.png);
+  background-size: 100% 100%;
+  height: 1080px;
+  position: relative;
+}
+
+.element-LOGIN .rectangle {
+  background-color: #d0e2ff33;
+  height: 1080px;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 1920px;
+}
+.element-LOGIN .rectangleW {
+  background-color: #ffffff;
+  height: 1080px;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 1920px;
+}
+
+.element-LOGIN .div {
+  background-color: #ffffff;
+  border-radius: 30px;
+  box-shadow: 4px 4px 20px #00000026;
+  height: 649px;
+  left: 606px;
+  position: absolute;
+  top: 229px;
+  width: 709px;
+}
+
+.element-LOGIN .PASSWORD {
+  height: 110px;
+  left: 799px;
+  position: absolute;
+  top: 605px;
+  width: 326px;
+}
+
+.element-LOGIN .overlap-group {
+  color: #302e4999;
+  font-family: "Circular Std-Book", Helvetica;
+  font-size: 22px;
+  font-weight: 400;
+
+  letter-spacing: 0;
+  line-height: normal;
+
+  white-space: nowrap;
+  text-align: center;
+  background-color: #ffffff;
+  border-radius: 20px;
+  height: 64px;
+  left: 0;
+  position: absolute;
+  top: 46px;
+  width: 324px;
+  border: 1px solid;
+  border-color: transparent;
+  border-image: linear-gradient(to bottom, rgb(135, 200, 220), rgb(163, 185, 134)) 1;
+}
+
+.element-LOGIN .PASSWORD-EYE {
+  height: 50px;
+  left: 277px;
+  position: absolute;
+  top: 60px;
+  width: 40px;
+}
+
+.element-LOGIN .text-wrapper {
+  color: #302e4999;
+  font-family: "Circular Std-Book", Helvetica;
+  font-size: 25px;
+  font-weight: 400;
+  left: 108px;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  top: 0;
+  white-space: nowrap;
+}
+
+.element-LOGIN .LOGIN {
+  height: 110px;
+  left: 799px;
+  position: absolute;
+  top: 455px;
+  width: 326px;
+}
+
+.element-LOGIN .text-wrapper-2 {
+  color: #302e4999;
+  font-family: "Circular Std-Book", Helvetica;
+  font-size: 25px;
+  font-weight: 400;
+  left: 130px;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  top: 0;
+  white-space: nowrap;
+  text-align: center;
+}
+
+.element-LOGIN .rectangle-2 {
+  color: #302e4999;
+  font-family: "Circular Std-Book", Helvetica;
+  font-size: 22px;
+  font-weight: 400;
+
+  letter-spacing: 0;
+  line-height: normal;
+
+  white-space: nowrap;
+  background-color: #ffffff;
+  border: 1px solid;
+  border-color: transparent;
+  border-image: linear-gradient(to bottom, rgb(135, 200, 220), rgb(163, 185, 134)) 1;
+  border-radius: 20px;
+  height: 64px;
+  left: 0;
+  position: absolute;
+  top: 46px;
+  width: 324px;
+  text-align: center;
+}
+
+.element-LOGIN .ENTER {
+  background-image: url(./assets/Rectangle19.png);
+  height: 52px;
+  left: 918px;
+  position: absolute;
+  top: 771px;
+  width: 87px;
+}
+.element-LOGIN .submitbtn {
+  background-color: #ffffff4c;
+  border-color: #00000000;
+  height: 52px;
+  left: 0px;
+  position: absolute;
+  top: 0px;
+  width: 88px;
+  border-radius: 30px;
+}
+
+.element-LOGIN .div-wrapper {
+  background-color: #00000005;
+  border-radius: 100px;
+  height: 52px;
+  position: relative;
+  width: 86px;
+}
+
+.element-LOGIN .text-wrapper-3 {
+  color: #00000080;
+  font-family: "Circular Std-Book", Helvetica;
+  font-size: 15px;
+  font-weight: 400;
+  left: 17px;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  text-align: center;
+  top: 15px;
+  white-space: nowrap;
+}
+
+.element-LOGIN .element-USONA-logo-high {
+  height: 82px;
+  left: 801px;
+  position: absolute;
+  top: 308px;
+  width: 322px;
+}
+.element-MOTOR-CONTROL .rectangle-3 {
+  height: 1080px;
+  left: 0;
+  position: absolute;
+  top: 3px;
+  width: 1919px;
+  }
 
 
 

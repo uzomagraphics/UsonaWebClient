@@ -23,6 +23,7 @@ import "./fonts/RooneySans-Bold.ttf";
 import "./fonts/RooneySans-Regular.ttf";
 
 
+
 const WS_URL = 'ws://localhost:8000';
 
 function App() {
@@ -48,7 +49,16 @@ function App() {
   });
 
   ///////////ANIMATE
+  const [open, setOpen] = useState(false);
+  const parentRef = React.useRef(null);
 
+  useEffect(() => {
+    if (parentRef.current) {
+      autoAnimate(parentRef.current);
+    }
+  }, [parentRef]);
+
+  const showMore = () => setOpen(!open);
   //////////////////////
  
   var [slider1, setSlider1] = useState('');
@@ -101,6 +111,89 @@ var [volume, setVolume] = useState('');
     ));
   };
 
+ var [Audioplay_pause, setAudioPlay_pause] = useState('play');
+const changeAudioPlay_pause = () => {
+  console.log("Send Audioplay_pause = " + Audioplay_pause)
+  sendMessage(JSON.stringify({ 
+    "AudioPlay_pause" : Audioplay_pause} 
+  ));
+};
+
+var [source, setSource] = useState(1);
+  const changeSource = (a) => {
+    console.log("Send source = " + a)
+    sendMessage(JSON.stringify({ 
+      "source" : a} 
+    ));
+  };
+
+
+
+  //////////////BLINDS//////////////
+  var [blinds, setBlinds] = useState('');
+  const changeBlinds = (e) => {
+    console.log("Send blinds = " + e)
+    sendMessage(JSON.stringify({ 
+      "blinds" : e} 
+    ));
+  };
+  //////////////LIGHT//////////////
+  var [lightBrightness, setLightBrightness] = useState('');
+  const changeLightBrightness = (e) => {
+    console.log("Send light brightness = " + lightBrightness)
+    sendMessage(JSON.stringify({ 
+      "lightBrightness" : lightBrightness[1]/100} 
+    ));
+  };
+
+  var [onOff, setOnOff] = useState('ON');
+  const changeOnOff = () => {
+    console.log("Send light onOff = " + onOff)
+    sendMessage(JSON.stringify({ 
+      "onOff" : onOff} 
+    ));
+  };
+
+    //////////////MOTOR//////////////
+    var [motor, setMotor] = useState('');
+    const changeMotor = (e) => {
+      console.log("Send motor = " + e)
+      sendMessage(JSON.stringify({ 
+        "motor" : e} 
+      ));
+    };
+
+    const sendEmergencyStop = () => {
+      console.log("sendEmergencyStop")
+      sendMessage(JSON.stringify({ 
+        "EmergencyStop" : "STOP",} 
+      ));
+    };
+ //////////////SYSTEM//////////////
+const [td, setTd] = useState('DOWN');
+
+    const sendReboot = () => {
+      console.log("sendReboot")
+      sendMessage(JSON.stringify({ 
+        "Reboot" : "Reboot",} 
+      ));
+    };
+
+    ////////PASSWORD//////
+    var [login, setLogin] = useState('incorrect');
+    var [userName, setUserName] = useState('');
+    var [password, setPassword] = useState('');
+    const handleSubmit = (event) => {
+      // Prevent page reload
+      event.preventDefault();
+
+      sendMessage(JSON.stringify({ 
+        "userName" : userName} 
+      ));
+      sendMessage(JSON.stringify({ 
+        "password" : password} 
+      ));
+    };
 
     ////////TEST
     const sendBrightness = (num) => {
@@ -187,6 +280,39 @@ const sendBacnetSlider = (num, id) => {
         setVolume([0, lastJsonMessage.volume * 100]);
         console.log("volume = " + lastJsonMessage.volume);
       }
+      if (lastJsonMessage.AudioPlay_pause){
+        setAudioPlay_pause(lastJsonMessage.Audioplay_pause == 'play'? 'pause' : 'play');
+        console.log("AudioPlay_pause = " + lastJsonMessage.AudioPlay_pause);
+      }
+      if (lastJsonMessage.source){
+        setSource(lastJsonMessage.source);
+        console.log("source = " + lastJsonMessage.source);
+      }
+      if (lastJsonMessage.blinds){
+        setBlinds(lastJsonMessage.blinds);
+        console.log("blinds = " + lastJsonMessage.blinds);
+      }
+      if (lastJsonMessage.lightBrightness){
+        setLightBrightness([0, lastJsonMessage.lightBrightness * 100]);
+        console.log("light brightness = " + lastJsonMessage.lightBrightness);
+      }
+      if (lastJsonMessage.onOff){
+        setOnOff(lastJsonMessage.onOff == 'ON'? 'OFF' : 'ON');
+        console.log("light onOff = " + onOff);
+      }
+      if (lastJsonMessage.motor){
+        setBlinds(lastJsonMessage.motor);
+        console.log("motor = " + lastJsonMessage.motor);
+      }
+      if (lastJsonMessage.TD){
+        setTd(lastJsonMessage.TD);
+        console.log("TD = " + td);
+      }
+
+      if (lastJsonMessage.login == 'correct'){
+        setLogin('correct')
+        console.log(login)
+      }
     }
   }, [lastJsonMessage]);
 
@@ -202,7 +328,9 @@ const sendBacnetSlider = (num, id) => {
       if(true){
         if(Math.pow(Math.abs(670.5 - event.clientX), 2) + Math.pow(Math.abs(574.5 - event.clientY), 2) < Math.pow(412.5, 2)){
           sendMessage(JSON.stringify({ 
-            "energy" : (event.clientX - 258) / 825,
+            "energy" : (event.clientX - 258) / 825}
+          ));
+          sendMessage(JSON.stringify({ 
             "positivity" : 1-(event.clientY -162) / 825}
           ));
         }
@@ -223,7 +351,7 @@ const sendBacnetSlider = (num, id) => {
 
   return (
     <>
-      <Swiper pagination={true} modules={[Pagination]} className="mySwiper" onSlideChange={() => console.log("change")} >
+      <Swiper pagination={true} modules={[Pagination]} className="mySwiper" onSlideChange={() => setLogin('incorrect')} >
         <SwiperSlide>
           <div className="element-EXPERIENCES">
             <div className="overlap-wrapper">
@@ -332,9 +460,7 @@ const sendBacnetSlider = (num, id) => {
               <div className="rectangle-2" />
               <button className="btnimg" onClick={e => { setPlay_pause(play_pause == 'play' ? 'pause' : 'play'); changePlay_pause()}}>
               <div className="PLAY-STOP">
-              {play_pause == 'play' ?  <img className="img" alt="Play STOP" src={require('./assets/Play.png')}/>: <img className="img" alt="Play STOP" src={require('./assets/Pause.png')}/>}
-              
-              
+                {play_pause == 'play' ?  <img className="img" alt="Play STOP" src={require('./assets/Play.png')}/>: <img className="img" alt="Play STOP" src={require('./assets/Pause.png')}/>}
               </div>
               </button>
 
@@ -404,6 +530,8 @@ const sendBacnetSlider = (num, id) => {
       
   </SwiperSlide>
 
+
+
   <SwiperSlide>
 
     <div className="element-AUDIO-STEP">
@@ -427,7 +555,9 @@ const sendBacnetSlider = (num, id) => {
             <div className="overlap-2">
               <div className="rectangle-2" />
               <div className="PLAY-STOP">
-                <img className="PLAY-STOP-2" alt="Play STOP" src={require('./assets/Pause.png')} />
+              <button  className="btnimg2" onClick={e => { setAudioPlay_pause(Audioplay_pause == 'play' ? 'pause' : 'play'); changeAudioPlay_pause()}}>
+              {Audioplay_pause == 'play' ?  <img className="img2" alt="Play STOP" src={require('./assets/Play.png')}/>: <img className="img2" alt="Play STOP" src={require('./assets/Pause.png')}/>}
+                </button>
               </div>
               <div className="VOLUME">
                 <img className="VOLUME-ICON" alt="Volume ICON" src={require('./assets/VOLUMEICON.png')} />
@@ -447,16 +577,250 @@ const sendBacnetSlider = (num, id) => {
               </div>
               <img className="line" alt="Line" src={require('./assets/LineAudio1.png')} />
               <img className="line-2" alt="Line" src={require('./assets/LineAudio2.png')} />
-              <div>
-              <img className="SONG-ICON" alt="Song ICON" src={require('./assets/SONGICON.png')} />
+              <div ref={parentRef}>
+              {!open && (
+              <img className="SONG-ICON" alt="Song ICON" src={require('./assets/SONGICON.png')} onClick={showMore}/>
+              )}
               </div>
             </div>
+
+            {open && (
+          <div className="INPUT-SOURCE">
+            <img className="SONG-ICON2" alt="Song ICON" src={require('./assets/SONGICON.png')} />
+            <img className="BACK" alt="Back" src={require('./assets/BACK.png')} onClick={showMore}/>
+            {source == 1 ? <div className="rectangle-4" /> : null}
+            <div className="rectangle-4btn" onClick={e => {setSource((prevSource) =>1); changeSource(1)}}>
+            <div className="text-wrapper-2">Source 01 - Title</div>
+            </div>
+            {source == 2 ? <div className="rectangle-5" /> : null}
+            <div className="rectangle-5btn" onClick={e => {setSource((prevSource) =>2); changeSource(2)}}>
+            <div className="text-wrapper-3">Source 02 - Title</div>
+            </div>
+            {source == 3 ? <div className="rectangle-6" /> : null}
+            <div className="rectangle-6btn" onClick={e => {setSource((prevSource) =>3); changeSource(3)}}>
+            <div className="text-wrapper-4">Source 03 - Title</div>
+            </div>
+            {source == 4 ? <div className="rectangle-7" /> : null}
+            <div className="rectangle-7btn" onClick={e => {setSource((prevSource) =>4); changeSource(4)}}>
+            <div className="text-wrapper-5">Source 04 - Title</div>
+            </div>
+            <img className="line-3" alt="Line" src={require('./assets/Line4.png')} />
+            <img className="line-4" alt="Line" src={require('./assets/Line4.png')} />
+            <img className="line-5" alt="Line" src={require('./assets/Line4.png')} />
+            <img className="line-6" alt="Line" src={require('./assets/Line4.png')} />
+          </div>
+        )}
+
           </div>
         </div>
       </div>
     </div>
 
   </SwiperSlide>
+
+  <SwiperSlide>
+
+<div className="element-LIGHTNING">
+  <div className="overlap-wrapper">
+    <div className="overlap">
+      <img className="promousonalogowhite" alt="Promousonalogowhite" src={require('./assets/USONABKG.png')}/>
+        <div className="rectangle" />
+        <header className="HEADER">
+          <div className="overlap-group">
+            <div className="div" >
+            <img
+               className="element-USONA-logo-high"
+              alt="Element USONA logo high"
+              src={require('./assets/Logo.png')}
+            />
+            <div className='textLight'>LIGHTNING</div>
+            </div>
+          </div>
+        </header>
+
+        <div className="SETTINGS swiper-no-swiping">
+          <div className="overlap-2">
+            <div className="rectangle-2" />
+             <img className="line" alt="Line" src={require('./assets/Line1Light.png')}/>
+             <img className="line2" alt="Line" src={require('./assets/Line1Light.png')} />
+           </div>
+         </div>
+
+        <div className="BRIGHTNESS swiper-no-swiping">
+           <img className="BRIGHTNESS-ICON" alt="Brightness ICON" src={require('./assets/BRIGHTNESSICONLight.png')} />
+            <div className="SLIDER">
+            
+              <div className="overlap-group-2">
+              <RangeSlider
+                      className="b_slider"
+                      defaultValue={[0, 1]}
+                      thumbsDisabled={[true, false]}
+                      rangeSlideDisabled={true}
+                      value = {lightBrightness}
+                      onInput={e => {setLightBrightness(e); changeLightBrightness()}}
+                    />
+              </div>
+             </div>
+           </div>
+
+           <div className="MOTOR-CONTROL swiper-no-swiping">
+            <div className="ON-OFF" onClick={e => {setOnOff(onOff == 'ON' ? 'OFF' : 'ON'); changeOnOff()}}>
+              <div className="overlap-group">
+                {onOff == 'ON' ? <img className="CURSEUR" alt="Curseur" src={require('./assets/CURSEUR.png')} /> : <img className="CURSEUR2" alt="Curseur" src={require('./assets/CURSEUR.png')} />}
+
+              </div>
+            <div className="text-wrapper">ON/OFF</div>
+          </div>
+
+             <div className="UP-DOWN">
+                <div className='UP-DOWN2' onClick={e => {setBlinds(blinds <= 0.9 ? blinds + 0.1 : 1); changeBlinds(blinds <= 0.9 ? blinds + 0.1 : 1)}}>
+                  <img className="UP" alt="Up" src={require('./assets/UP.png')}/>
+                </div>
+                <div className='UP-DOWN1' onClick={e => {setBlinds(blinds => 0.1 ? blinds - 0.1 : 0); changeBlinds(blinds >= 0.1 ? blinds - 0.1 : 0)}}>
+                  <img className="DOWN" alt="Down" src={require('./assets/DOWN.png')}/>
+                </div>
+               <img className="line-2" alt="Line" src={require('./assets/Line8Light.png')} />
+              </div>
+
+              <img className="OPEN" onClick={e => {setBlinds(0); changeBlinds(0)}} src={require('./assets/OPEN.png')}/>
+              
+              <img className="HALF-OPEN" onClick={e => {setBlinds(0.5); changeBlinds(0.5)}}  src={require('./assets/HALFOPEN.png')}/>
+                  
+              <img className="CLOSE" onClick={e => {setBlinds(1); changeBlinds(1)}} src={require('./assets/CLOSE.png')}/>
+              
+                
+            
+              
+            </div>
+          </div>
+        </div>
+      </div>
+    
+
+</SwiperSlide>
+
+<SwiperSlide>
+
+
+
+  <div className="element-MOTOR-CONTROL">
+    <div className="overlap-wrapper">
+      <div className="overlap">
+        <img className="promousonalogowhite" alt="Promousonalogowhite" src={require('./assets/USONABKG.png')} />
+        <div className="rectangle" />
+
+        <header className="HEADER">
+          <div className="overlap-group">
+            <div className="div" />
+            <img
+              className="element-USONA-logo-high"
+              alt="Element USONA logo high"
+              src={require('./assets/Logo.png')}
+            />
+            <div className="text-wrapper">ADVANCE SETTINGS</div>
+          </div>
+        </header>
+
+        <div className="SETTINGS">
+          <div className="overlap-2">
+            <div className="overlap-group-2">
+              <img className="line" alt="Line" src={require('./assets/Line2Motor.png')} />
+              <img className="img" alt="Line" src={require('./assets/Line3Motor.png')} />
+            </div>
+            <div className="text-wrapper-2">MOTOR CONTROL</div>
+            <div className="text-wrapper-3">SYSTEM</div>
+
+            <div className="MOTOR-CONTROL">
+
+            <div className="UP-DOWN">
+                <div className='UP-DOWN2' onClick={e => {setMotor(motor <= 0.9 ? motor + 0.1 : 1); changeMotor(motor <= 0.9 ? motor + 0.1 : 1)}}>
+                  <img className="UP" alt="Up" src={require('./assets/UP.png')}/>
+                </div>
+                <div className='UP-DOWN1' onClick={e => {setMotor(motor => 0.1 ? motor - 0.1 : 0); changeMotor(motor >= 0.1 ? motor - 0.1 : 0)}}>
+                  <img className="DOWN" alt="Down" src={require('./assets/DOWN.png')}/>
+                </div>
+              <img className="line-2" alt="Line" src={require('./assets/Line8Light.png')} />
+            </div>
+
+              <button className="POSITION" onClick={e => {setMotor(0); changeMotor(0)}}>
+                <img className="POSITIONbtn" alt="Rectangle" src={require('./assets/POSITION01.png')} />
+              </button>
+
+              <button className="POSITION-2" onClick={e => {setMotor(0.5); changeMotor(0.5)}}>
+                <img className="POSITIONbtn" alt="Rectangle" src={require('./assets/POSITION02.png')} />
+              </button>
+
+              <button className="POSITION-3" onClick={e => {setMotor(1); changeMotor(1)}}>
+                <img className="POSITIONbtn" alt="Rectangle" src={require('./assets/POSITION03.png')} />
+              </button>
+
+              <button className="EMERGENCY-STOP" onClick={e => {sendEmergencyStop()}}>
+                <div className="rectangle-8" />
+              </button>
+
+            </div>
+
+            <div className="SYSTEM">
+              <div className="REBOOT" onClick={e => {sendReboot()}}>
+                <img className="POWER" alt="Power" src={require('./assets/POWER.png')} />
+              </div>
+              <div className="TD-STATUS">
+                <p className="touch-designer">
+                  <span className="span">Touch Designer :</span>
+                  <span className="text-wrapper-4"> Active</span>
+                </p>
+                {td == 'UP' ? <div className="ellipse" /> : <div className="ellipse2" />}
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        {login =='correct' ? null :
+         <div className="element-LOGIN">
+   
+      <div className="overlap-wrapper">
+        <div className="overlap">
+
+          <div className="rectangleW" />
+          <div className="rectangle" />
+          <div className="overlap" />
+          <div className="div" />
+
+        <form onSubmit={handleSubmit}>
+          <div className="PASSWORD">
+            <div >
+            <input className="overlap-group" value={password} type="password" name="pass" required onChange={e => {setPassword(e.target.value)}}/>
+              <img className="PASSWORD-EYE" alt="Password EYE" src={require('./assets/PASSWORDEYE.png')} />
+            </div>
+            <div className="text-wrapper">Password</div>
+          </div>
+          <div className="LOGIN">
+            <div className="text-wrapper-2">Login</div>
+            <input className="rectangle-2" value={userName} type="text" name="uname" required onChange={e => {setUserName(e.target.value)}}/>
+          </div>
+          <div className="ENTER">
+            <div className="div-wrapper" >
+              <button className='submitbtn' type="submit">
+              <div className="text-wrapper-3">ENTER</div>
+              </button>
+            </div>
+          </div>
+        </form>
+
+          <img className="element-USONA-logo-high" alt="Element USONA logo high" src={require('./assets/Logo.png')} />
+        </div>
+      </div>
+    </div>
+    }
+
+      </div>
+    </div>
+  </div>
+
+</SwiperSlide>
+
+
 
         <SwiperSlide>
           <div class="swiper-slide slide3">
