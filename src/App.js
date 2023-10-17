@@ -316,8 +316,7 @@ const sendBacnetSlider = (num, id) => {
     }
   }, [lastJsonMessage]);
 
-
-  //MOUSE POSITION  FLOWER OF LIFE
+//MOUSE POSITION  FLOWER OF LIFE
 // This will keep the reference to the DOM node for the "EMOTIONAL-CIRCLE"
 const emotionalCircleRef = useRef(null);
 
@@ -544,7 +543,7 @@ useEffect(() => {
               <div className="text-wrapper-5" draggable="false">depressed</div>
               <div className="text-wrapper-6" draggable="false">sad</div>
               <div className="text-wrapper-7" draggable="false">alert</div>
-              <div className="text-wrapper-8" draggable="false">arrousal +</div>
+              <div className="text-wrapper-8" draggable="false">arousal +</div>
               <div className="text-wrapper-9" draggable="false">valence +</div>
               <div className="text-wrapper-10" draggable="false">fatigued</div>
               <div className="text-wrapper-11" draggable="false">happy</div>
