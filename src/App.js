@@ -1,4 +1,4 @@
-import React, { useEffect, useState  } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import useWebSocket from 'react-use-websocket';
 
 import autoAnimate from '@formkit/auto-animate'
@@ -318,33 +318,64 @@ const sendBacnetSlider = (num, id) => {
 
 
   //MOUSE POSITION  FLOWER OF LIFE
-  const handleMouseMove = (event) => {
-    // 👇 Get mouse position relative to element
-    const localX = event.clientX - event.target.offsetLeft;
-    const localY = event.clientY - event.target.offsetTop;
-  };
-  useEffect(() => {
-    const handleMouseMove = (event) => {
-      if(true){
-        if(Math.pow(Math.abs(670.5 - event.clientX), 2) + Math.pow(Math.abs(574.5 - event.clientY), 2) < Math.pow(412.5, 2)){
-          sendMessage(JSON.stringify({ 
-            "energy" : (event.clientX - 258) / 825}
-          ));
-          sendMessage(JSON.stringify({ 
-            "positivity" : 1-(event.clientY -162) / 825}
-          ));
-        }
-      }
-    };
+// This will keep the reference to the DOM node for the "EMOTIONAL-CIRCLE"
+const emotionalCircleRef = useRef(null);
 
-    window.addEventListener('mousemove', handleMouseMove);
+useEffect(() => {
+  let isDragging = false;  // Variable to keep track of dragging
+
+  const processMovement = (x, y) => {
+    // Check if the touch/mouse is inside the circle's boundaries
+    if (Math.pow(Math.abs(670.5 - x), 2) + Math.pow(Math.abs(574.5 - y), 2) < Math.pow(412.5, 2)) {
+      sendMessage(JSON.stringify({
+        "energy": (x - 258) / 825
+      }));
+      sendMessage(JSON.stringify({
+        "positivity": 1 - (y - 162) / 825
+      }));
+    }
+  };
+
+  const handleMouseMove = (event) => {
+    if (!isDragging) return;
+    processMovement(event.clientX, event.clientY);
+  };
+
+  const handleTouchMove = (event) => {
+    if (!isDragging) return;
+    if (event.touches && event.touches.length > 0) {
+      const touch = event.touches[0];
+      processMovement(touch.clientX, touch.clientY);
+    }
+  };
+
+  const startDrag = () => {
+    isDragging = true;
+    document.addEventListener('mousemove', handleMouseMove);
+    document.addEventListener('touchmove', handleTouchMove);
+  };
+
+  const stopDrag = () => {
+    isDragging = false;
+    document.removeEventListener('mousemove', handleMouseMove);
+    document.removeEventListener('touchmove', handleTouchMove);
+  };
+
+  // Attach the start and stop drag event listeners to the specific element
+  if (emotionalCircleRef.current) {
+    emotionalCircleRef.current.addEventListener('mousedown', startDrag);
+    emotionalCircleRef.current.addEventListener('touchstart', startDrag);
+    document.addEventListener('mouseup', stopDrag);
+    document.addEventListener('touchend', stopDrag);
+
     return () => {
-      window.removeEventListener(
-        'mousemove',
-        handleMouseMove
-      );
+      emotionalCircleRef.current.removeEventListener('mousedown', startDrag);
+      emotionalCircleRef.current.removeEventListener('touchstart', startDrag);
+      document.removeEventListener('mouseup', stopDrag);
+      document.removeEventListener('touchend', stopDrag);
     };
-  }, []);
+  }
+}, []);
 
 
 
@@ -500,7 +531,7 @@ const sendBacnetSlider = (num, id) => {
             </div>
           </div>
 
-          <div className="EMOTIONAL-CIRCLE swiper-no-swiping" draggable="false" onMouseEnter={handleMouseMove}>
+          <div className="EMOTIONAL-CIRCLE swiper-no-swiping" draggable="false" ref={emotionalCircleRef}>
           
           
             <div className="overlap-2">
