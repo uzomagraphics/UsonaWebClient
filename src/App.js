@@ -324,16 +324,29 @@ useEffect(() => {
   let isDragging = false;  // Variable to keep track of dragging
 
   const processMovement = (x, y) => {
+    // Translate to origin (670.5, 574.5)
+    const translatedX = x - 670.5;
+    const translatedY = y - 574.5;
+  
+    // Rotate 45 degrees
+    const rotatedX = translatedX * Math.sqrt(2)/2 - translatedY * Math.sqrt(2)/2;
+    const rotatedY = translatedX * Math.sqrt(2)/2 + translatedY * Math.sqrt(2)/2;
+  
     // Check if the touch/mouse is inside the circle's boundaries
-    if (Math.pow(Math.abs(670.5 - x), 2) + Math.pow(Math.abs(574.5 - y), 2) < Math.pow(412.5, 2)) {
+    if (Math.pow(rotatedX, 2) + Math.pow(rotatedY, 2) < Math.pow(412.5, 2)) {
+      // Convert back to original space for messaging
+      const finalX = rotatedX + 670.5;
+      const finalY = rotatedY + 574.5;
+  
       sendMessage(JSON.stringify({
-        "energy": (x - 258) / 825
+        "energy": (finalX - 258) / 825
       }));
       sendMessage(JSON.stringify({
-        "positivity": 1 - (y - 162) / 825
+        "positivity": (finalY - 162) / 825
       }));
     }
   };
+  
 
   const handleMouseMove = (event) => {
     if (!isDragging) return;
