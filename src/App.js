@@ -1,6 +1,8 @@
 import React, { useEffect, useState, useRef } from 'react';
 import useWebSocket from 'react-use-websocket';
 
+import { Helmet } from 'react-helmet'; 
+
 import autoAnimate from '@formkit/auto-animate'
 
 import RangeSlider from 'react-range-slider-input';
@@ -22,7 +24,7 @@ import "./fonts/RooneySans-Bold.ttf";
 import "./fonts/RooneySans-Regular.ttf";
 
 
-const WS_URL = 'ws://localhost:8000';
+const WS_URL = 'ws://192.168.1.70:8000';
 
 function App() {
   const { } = useWebSocket(WS_URL, {
@@ -135,10 +137,10 @@ function App() {
 
   //////////////BLINDS//////////////
   var [blinds, setBlinds] = useState('');
-  const changeBlinds = (e) => {
-    console.log("Send blinds = " + e)
+  const changeBlinds = () => {
+    console.log("Send blinds = " + Math.round(blinds * 10) / 10);
     sendMessage(JSON.stringify({
-      "blinds": e
+      "blinds": (Math.round(blinds * 10) / 10)
     }
     ));
   };
@@ -436,6 +438,17 @@ function App() {
 
   return (
     <>
+    <div>
+    <Helmet>
+        <title>Your Page Title</title>
+        <meta name="description" content="This is the description of your page" />
+        <meta name="keywords" content="react, meta tags, example" />
+        <link rel="canonical" href="https://example.com/your-page" />
+        <meta name="viewport" content="width=1920, height=1080, orientation=landscape" />
+
+
+    </Helmet>
+
       <Swiper pagination={true} modules={[Pagination]} className="mySwiper" onSlideChange={() => setLogin('incorrect')} >
 
 
@@ -759,20 +772,20 @@ function App() {
                   </div>
 
                   <div className="UP-DOWN">
-                    <div className='UP-DOWN2' onClick={e => { setBlinds(blinds <= 0.9 ? blinds + 0.1 : 1); changeBlinds(blinds <= 0.9 ? blinds + 0.1 : 1) }}>
+                    <div className='UP-DOWN2' onClick={e => { setBlinds(blinds <= 0.9 ? blinds + 0.1 : 1); changeBlinds() }}>
                       <img className="UP" alt="Up" src={require('./assets/UP.png')} />
                     </div>
-                    <div className='UP-DOWN1' onClick={e => { setBlinds(blinds => 0.1 ? blinds - 0.1 : 0); changeBlinds(blinds >= 0.1 ? blinds - 0.1 : 0) }}>
+                    <div className='UP-DOWN1' onClick={e => { setBlinds(blinds >= 0.1 ? blinds - 0.1 : 0); changeBlinds() }}>
                       <img className="DOWN" alt="Down" src={require('./assets/DOWN.png')} />
                     </div>
                     <img className="line-2" alt="Line" src={require('./assets/Line8Light.png')} />
                   </div>
 
-                  <img className="OPEN" onClick={e => { setBlinds(0); changeBlinds(0) }} src={require('./assets/OPEN.png')} />
+                  <img className="OPEN" onClick={e => { setBlinds(0); changeBlinds() }} src={require('./assets/OPEN.png')} />
 
-                  <img className="HALF-OPEN" onClick={e => { setBlinds(0.5); changeBlinds(0.5) }} src={require('./assets/HALFOPEN.png')} />
+                  <img className="HALF-OPEN" onClick={e => { setBlinds(0.5); changeBlinds() }} src={require('./assets/HALFOPEN.png')} />
 
-                  <img className="CLOSE" onClick={e => { setBlinds(1); changeBlinds(1) }} src={require('./assets/CLOSE.png')} />
+                  <img className="CLOSE" onClick={e => { setBlinds(1); changeBlinds() }} src={require('./assets/CLOSE.png')} />
 
                 </div>
               </div>
@@ -979,6 +992,8 @@ function App() {
         </SwiperSlide>
 
       </Swiper>
+
+      </div>
     </>
   );
 }
