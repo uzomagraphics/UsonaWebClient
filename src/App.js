@@ -22,6 +22,7 @@ import { Pagination } from "swiper/modules";
 // FONTS
 import "./fonts/RooneySans-Bold.ttf";
 import "./fonts/RooneySans-Regular.ttf";
+import "./fonts/CircularStd-Book.ttf";
 
 
 const WS_URL = 'ws://192.168.1.70:8000';
@@ -136,13 +137,16 @@ function App() {
 
 
   //////////////BLINDS//////////////
-  var [blinds, setBlinds] = useState('');
-  const changeBlinds = () => {
-    console.log("Send blinds = " + Math.round(blinds * 10) / 10);
-    sendMessage(JSON.stringify({
-      "blinds": (Math.round(blinds * 10) / 10)
-    }
-    ));
+  var [blinds, setBlinds] = useState(0);
+  const changeBlinds = (e) => {
+    setBlinds(prevBlinds => {
+      const updatedBlinds = e;
+      console.log("Send blinds = " + Math.round(updatedBlinds * 10) / 10);
+      sendMessage(JSON.stringify({
+        "blinds": (Math.round(updatedBlinds * 10) / 10)
+      }));
+      return updatedBlinds;
+    });
   };
 
   //////////////LIGHT//////////////
@@ -165,14 +169,18 @@ function App() {
   };
 
   //////////////MOTOR//////////////
-  var [motor, setMotor] = useState('');
+  var [motor, setMotor] = useState(0);
+
   const changeMotor = (e) => {
-    console.log("Send motor = " + e)
+  setMotor(prevMotor => {
+    const updatedMotor = e;
+    console.log("Send motor = " + Math.round(updatedMotor * 10) / 10);
     sendMessage(JSON.stringify({
-      "motor": e
-    }
-    ));
-  };
+      "motor": (Math.round(updatedMotor * 10) / 10)
+    }));
+    return updatedMotor; // Return the updated value
+  });
+};
 
   const sendEmergencyStop = () => {
     console.log("sendEmergencyStop")
@@ -306,26 +314,29 @@ function App() {
       }
       if (lastJsonMessage.AudioPlay_pause) {
         setAudioPlay_pause(lastJsonMessage.Audioplay_pause == 'play' ? 'pause' : 'play');
-        console.log("AudioPlay_pause = " + lastJsonMessage.AudioPlay_pause);
+        console.log("AudioPlay_pause = " + Audioplay_pause);
       }
       if (lastJsonMessage.source) {
         setSource(lastJsonMessage.source);
-        console.log("source = " + lastJsonMessage.source);
+        console.log("source = " + source);
       }
       if (lastJsonMessage.blinds) {
-        setBlinds(lastJsonMessage.blinds);
-        console.log("blinds = " + lastJsonMessage.blinds);
+        setBlinds(prevBlinds => {
+          const updatedBlinds = lastJsonMessage.blinds;
+        return updatedBlinds});
+        console.log("blinds = " + blinds);
       }
       if (lastJsonMessage.lightBrightness) {
         setLightBrightness([0, lastJsonMessage.lightBrightness * 100]);
-        console.log("light brightness = " + lastJsonMessage.lightBrightness);
+        console.log("light brightness = " + brightness);
       }
       if (lastJsonMessage.onOff) {
         setOnOff(lastJsonMessage.onOff == 'ON' ? 'OFF' : 'ON');
         console.log("light onOff = " + onOff);
       }
       if (lastJsonMessage.motor) {
-        setBlinds(lastJsonMessage.motor);
+        setMotor(prevMotor => {
+          const updatedMotor = lastJsonMessage.motor});
         console.log("motor = " + lastJsonMessage.motor);
       }
       if (lastJsonMessage.TD) {
@@ -705,10 +716,15 @@ function App() {
                       <div className="rectangle-7btn" onClick={e => { setSource((prevSource) => 4); changeSource(4) }}>
                         <div className="text-wrapper-5">Source 04 - Title</div>
                       </div>
+                      {source == 5 ? <div className="rectangle-8" /> : null}
+                      <div className="rectangle-8btn" onClick={e => { setSource((prevSource) => 5); changeSource(5) }}>
+                        <div className="text-wrapper-6">Source 05 - Title</div>
+                      </div>
                       <img className="line-3" alt="Line" src={require('./assets/Line4.png')} />
                       <img className="line-4" alt="Line" src={require('./assets/Line4.png')} />
                       <img className="line-5" alt="Line" src={require('./assets/Line4.png')} />
                       <img className="line-6" alt="Line" src={require('./assets/Line4.png')} />
+                      <img className="line-7" alt="Line" src={require('./assets/Line4.png')} />
                     </div>
                   )}
 
@@ -772,20 +788,20 @@ function App() {
                   </div>
 
                   <div className="UP-DOWN">
-                    <div className='UP-DOWN2' onClick={e => { setBlinds(blinds <= 0.9 ? blinds + 0.1 : 1); changeBlinds() }}>
+                    <div className='UP-DOWN2' onClick={e => { changeBlinds(blinds <= 0.9 ? blinds + 0.1 : 1) }}>
                       <img className="UP" alt="Up" src={require('./assets/UP.png')} />
                     </div>
-                    <div className='UP-DOWN1' onClick={e => { setBlinds(blinds >= 0.1 ? blinds - 0.1 : 0); changeBlinds() }}>
+                    <div className='UP-DOWN1' onClick={e => { changeBlinds(blinds >= 0.1 ? blinds - 0.1 : 0) }}>
                       <img className="DOWN" alt="Down" src={require('./assets/DOWN.png')} />
                     </div>
                     <img className="line-2" alt="Line" src={require('./assets/Line8Light.png')} />
                   </div>
 
-                  <img className="OPEN" onClick={e => { setBlinds(0); changeBlinds() }} src={require('./assets/OPEN.png')} />
+                  <img className="OPEN" onClick={e => { changeBlinds(0) }} src={require('./assets/OPEN.png')} />
 
-                  <img className="HALF-OPEN" onClick={e => { setBlinds(0.5); changeBlinds() }} src={require('./assets/HALFOPEN.png')} />
+                  <img className="HALF-OPEN" onClick={e => { changeBlinds(0.5) }} src={require('./assets/HALFOPEN.png')} />
 
-                  <img className="CLOSE" onClick={e => { setBlinds(1); changeBlinds() }} src={require('./assets/CLOSE.png')} />
+                  <img className="CLOSE" onClick={e => { changeBlinds(1) }} src={require('./assets/CLOSE.png')} />
 
                 </div>
               </div>
@@ -827,24 +843,24 @@ function App() {
                     <div className="MOTOR-CONTROL">
 
                       <div className="UP-DOWN">
-                        <div className='UP-DOWN2' onClick={e => { setMotor(motor <= 0.9 ? motor + 0.1 : 1); changeMotor(motor <= 0.9 ? motor + 0.1 : 1) }}>
+                        <div className='UP-DOWN2' onClick={e => {changeMotor(motor <= 0.9 ? motor + 0.1 : 1) }}>
                           <img className="UP" alt="Up" src={require('./assets/UP.png')} />
                         </div>
-                        <div className='UP-DOWN1' onClick={e => { setMotor(motor => 0.1 ? motor - 0.1 : 0); changeMotor(motor >= 0.1 ? motor - 0.1 : 0) }}>
+                        <div className='UP-DOWN1' onClick={e => {changeMotor(motor >= 0.1 ? motor - 0.1 : 0) }}>
                           <img className="DOWN" alt="Down" src={require('./assets/DOWN.png')} />
                         </div>
                         <img className="line-2" alt="Line" src={require('./assets/Line8Light.png')} />
                       </div>
 
-                      <button className="POSITION" onClick={e => { setMotor(0); changeMotor(0) }}>
+                      <button className="POSITION" onClick={e => {changeMotor(0) }}>
                         <img className="POSITIONbtn" alt="Rectangle" src={require('./assets/POSITION01.png')} />
                       </button>
 
-                      <button className="POSITION-2" onClick={e => { setMotor(0.5); changeMotor(0.5) }}>
+                      <button className="POSITION-2" onClick={e => {changeMotor(0.5) }}>
                         <img className="POSITIONbtn" alt="Rectangle" src={require('./assets/POSITION02.png')} />
                       </button>
 
-                      <button className="POSITION-3" onClick={e => { setMotor(1); changeMotor(1) }}>
+                      <button className="POSITION-3" onClick={e => {changeMotor(1) }}>
                         <img className="POSITIONbtn" alt="Rectangle" src={require('./assets/POSITION03.png')} />
                       </button>
 
@@ -884,14 +900,18 @@ function App() {
                         <form onSubmit={handleSubmit}>
                           <div className="PASSWORD">
                             <div >
-                              <input className="overlap-group" value={password} type="password" name="pass" required onChange={e => { setPassword(e.target.value) }} />
+                              <div className='password-wrapper'>
+                                <input className="overlap-group" value={password} type="password" name="pass" required onChange={e => { setPassword(e.target.value) }} />
+                              </div>
                               <img className="PASSWORD-EYE" alt="Password EYE" src={require('./assets/PASSWORDEYE.png')} />
                             </div>
                             <div className="text-wrapper">Password</div>
                           </div>
                           <div className="LOGIN">
                             <div className="text-wrapper-2">Login</div>
-                            <input className="rectangle-2" value={userName} type="text" name="uname" required onChange={e => { setUserName(e.target.value) }} />
+                              <div className='rectanle-wrapper'>
+                                <input className="rectangle-2" value={userName} type="text" name="uname" required onChange={e => { setUserName(e.target.value) }} />
+                              </div>
                           </div>
                           <div className="ENTER">
                             <div className="div-wrapper" >
