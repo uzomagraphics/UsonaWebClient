@@ -25,7 +25,7 @@ import "./fonts/RooneySans-Regular.ttf";
 import "./fonts/CircularStd-Book.ttf";
 
 
-const WS_URL = 'ws://192.168.1.70:8000';
+const WS_URL = 'ws://localhost:8000';
 
 function App() {
   const { } = useWebSocket(WS_URL, {
